@@ -1,3 +1,28 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities"
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* Hero section */
+    /* Hero navbar */
+    .hero-navbar-link {
+        @apply text-white;
+    }
+    /* Hero image links */
+    .hero-link {
+        @apply w-full h-full bg-red-100 rounded-2xl;
+    }
+
+    .hero-link > div {
+        @apply relative bottom-0 right-0 h-full w-full cursor-pointer;
+    }
+
+    .hero-link > div > div {
+        @apply absolute bottom-0 right-0 bg-background text-white pt-2 px-2 pe-3 rounded-tl-lg flex items-center gap-1 uppercase leading-none;
+    }
+}
+
+@font-face {
+    font-family: 'HeadingFont';
+    src: url('/src/lib/static/fonts/glamorous-font/GlamoroustrialRegular-8MGoM.otf');
+}
