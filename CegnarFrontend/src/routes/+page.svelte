@@ -1,22 +1,27 @@
 <script>
     // Images
     import HeroImg from "$lib/static/images/hero1.jpg";
+    import HandleImg from "$lib/static/images/handle3.png";
+    import BladeImg from "$lib/static/images/blade.png";
+    import WoodTextureImg from "$lib/static/images/texture3.jpg";
     // Icons
     import RightArrow from '~icons/material-symbols-light/arrow-circle-right-outline-rounded';
     import IGIcon from '~icons/mdi/instagram';
     import FacebookIcon from '~icons/mdi/facebook-box';
     import EmailIcon from '~icons/mdi/email';
+    // Components
+    import FeatureCard from "$lib/components/FeatureCard.svelte";
 </script>
 
 <!-- Hero section -->
-<section class="xl:h-screen w-screen bg-background p-6 flex xl:flex-row flex-col gap-4">
+<section class="xl:h-screen bg-background p-6 flex xl:flex-row flex-col gap-4">
     <!-- Main image / video -->
     <div class="hero-main w-full xl:h-full lg:h-[600px] rounded-2xl xl:basis-[70%] shrink grow bg-center relative" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 59%), url('{HeroImg}');">
         <!-- Hero navbar -->
         <div class="flex xl:justify-start xl:ms-10 xl:mt-10 lg:mt-4 lg:justify-center">
             <div class="inline-flex justify-center bg-background rounded-lg p-4 gap-4">
                 <!-- Menu -->
-                <div class="text-white font-2xl">
+                <div class="text-textPrimary font-2xl">
                     X
                 </div>
 
@@ -24,7 +29,7 @@
                 <img src="https://framerusercontent.com/images/x0JzSofUJm2jTIMMg5jbgdRYVzU.webp" width="110px" class="object-contain" alt="logo">
 
                 <!-- Links -->
-                <ul class="inline-flex items-center gap-4">
+                <ul class="inline-flex items-center gap-4 textPrimary">
                     <li class="hero-navbar-link">Galerija</li>
                     <li class="hero-navbar-link">Zgodba</li>
                     <li class="hero-navbar-link"><a href="/kontakt" class="border rounded p-2">Kontakt</a></li>
@@ -34,8 +39,8 @@
         
         <!-- Hero title -->
         <div class="absolute bottom-10 left-10 w-full xl:text-start text-center">
-            <h1 class="text-white text-8xl font-heading">Kakovost</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, ipsam?</p>
+            <h1 class="text-textPrimary text-8xl font-heading">Kakovost</h1>
+            <p class="text-textSecondary">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, ipsam?</p>
         </div>
 
         <!-- Social -->
@@ -82,7 +87,37 @@
     </div>
 </section>
 
+<!-- CTA -->
+<section class="bg-orange-500 h-[20vh]">
+    <div class="flex flex-col justify-center items-center h-full">
+        <h1>Poklici me!</h1>
+        <a href="/kontakt" class="btn">Kontakt</a>
+    </div>
+</section>
 
+<!-- Features -->
+<section class="bg-background py-28">
+    <!-- Cards -->
+    <div class="mx-20">
+        <FeatureCard knifeImg={HandleImg} textureImg={WoodTextureImg} heading="Izjemno oblikovanje" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid totam sunt facere omnis error fugiat?" buttonText="Izvedi več" />
+
+        <FeatureCard knifeImg={BladeImg} textureImg={WoodTextureImg} heading="Personalizacija" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid totam sunt facere omnis error fugiat?" buttonText="Izvedi več" flipped />
+    </div>
+</section>
+
+<!-- Gallery showcase -->
+<section>
+    <div class="">
+
+    </div>
+</section>
+
+<!-- About me -->
 <section>
 
 </section>
+
+<!-- Footer -->
+<footer>
+
+</footer>

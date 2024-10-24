@@ -5,6 +5,8 @@ export default {
   theme: {
     extend: {
       colors: {
+        textPrimary: "rgb(239, 231, 210);",
+        textSecondary: "#c9c9c9",
         background: "#000000",
       },
       fontFamily: {

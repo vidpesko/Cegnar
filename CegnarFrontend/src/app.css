@@ -3,10 +3,15 @@
 @tailwind utilities;
 
 @layer components {
+    /* Custom button */
+    .btn {
+        @apply p-4 text-white border-[0.5px] hover:bg-white hover:text-background transition-all duration-200 rounded;
+    }
+
     /* Hero section */
     /* Hero navbar */
     .hero-navbar-link {
-        @apply text-white;
+        @apply text-textPrimary;
     }
     /* Hero image links */
     .hero-link {
@@ -19,6 +24,32 @@
 
     .hero-link > div > div {
         @apply absolute bottom-0 right-0 bg-background text-white pt-2 px-2 pe-3 rounded-tl-lg flex items-center gap-1 uppercase leading-none;
+    }
+
+
+    /* Features section */
+    .flipped .card-text {
+        @apply text-start order-1 pe-0 ps-4;
+    }
+
+    .flipped .card-images {
+        @apply order-2;
+    }
+
+    .flipped .card-images img:first-of-type {
+        @apply rotate-[30deg] -right-32 -top-16;
+    }
+
+    .flipped .card-images img:last-of-type {
+        @apply -right-20;
+    }
+
+    .feature-card:hover .card-images img:last-of-type {
+        @apply -translate-x-10;
+    }
+
+    .flipped:hover .card-images img:last-of-type {
+        @apply translate-x-10;
     }
 }
 
