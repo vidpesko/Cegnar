@@ -13,7 +13,7 @@
         <img src={knifeImg} alt="" class:left-0={!flipped} class="absolute top-1/2 translate-y-[-50%] w-full transition-all duration-200">
     </div>
     
-    <div class="text-white text-end flex items-center pe-4 card-text">
+    <div class="text-textSecondary text-end flex items-center pe-4 card-text">
         <div class="">
             <h1 class="text-4xl font-heading text-textPrimary">{heading}</h1>
             <p class="mb-10">{description}</p>

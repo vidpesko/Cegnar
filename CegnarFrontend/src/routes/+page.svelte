@@ -11,6 +11,8 @@
     import EmailIcon from '~icons/mdi/email';
     // Components
     import FeatureCard from "$lib/components/FeatureCard.svelte";
+    // Image slider
+    import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 </script>
 
 <!-- Hero section -->
@@ -106,9 +108,30 @@
 </section>
 
 <!-- Gallery showcase -->
-<section>
+<section class="bg-background px-28">
     <div class="">
+        <!-- Title & description & show more btn -->
+        <div class="flex flex-col items-center text-textSecondary gap-2 mb-6">
+            <h1 class="font-heading text-4xl text-textPrimary">Zadnji izdelki</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, ullam!</p>
+            <a href="/galerija" class="btn">Poglej vse</a>
+        </div>
 
+        <!-- Image slider -->
+        <Splide aria-label="My Favorite Images" options={{
+            perPage: 3,
+            gap: "1em",
+            autoWidth: true,
+        }}>
+            {#each Array(5) as _}
+            <SplideSlide>
+                <img src="https://picsum.photos/300/300" alt="Slika 1"/>
+            </SplideSlide>
+            {/each}
+            <SplideSlide>
+                <img src="https://picsum.photos/500/300" alt="Slika 1"/>
+            </SplideSlide>
+        </Splide>
     </div>
 </section>
 
@@ -116,8 +139,3 @@
 <section>
 
 </section>
-
-<!-- Footer -->
-<footer>
-
-</footer>
