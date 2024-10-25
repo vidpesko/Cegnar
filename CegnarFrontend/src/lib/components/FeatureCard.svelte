@@ -5,6 +5,8 @@
     export let heading;
     export let description;
     export let buttonText;
+
+    import FireImg from "../static/images/fire-texture.jpg";
 </script>
 
 <div class="flex h-80 overflow-hidden rounded-2xl hover:border-white border-transparent border-[0.5px] transition-all duration-200 feature-card mb-10" class:flipped>
@@ -13,11 +15,12 @@
         <img src={knifeImg} alt="" class:left-0={!flipped} class="absolute top-1/2 translate-y-[-50%] w-full transition-all duration-200">
     </div>
     
-    <div class="text-textSecondary text-end flex items-center pe-4 card-text">
+    <div class="text-textSecondary text-end flex items-center pe-4 card-text relative">
         <div class="">
             <h1 class="text-4xl font-heading text-textPrimary">{heading}</h1>
             <p class="mb-10">{description}</p>
             <a href="/kontakt" class="btn">Zanima me</a>
         </div>
+        <img src={FireImg} alt="" class="absolute opacity-15 -right-32 -top-52 -rotate-12">
     </div>
 </div>

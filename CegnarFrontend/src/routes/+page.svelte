@@ -4,6 +4,8 @@
     import HandleImg from "$lib/static/images/handle3.png";
     import BladeImg from "$lib/static/images/blade.png";
     import WoodTextureImg from "$lib/static/images/texture3.jpg";
+    import MyImg from "$lib/static/images/about2.jpg";
+    import FireImg from "$lib/static/images/fire-texture2.jpg";
     // Icons
     import RightArrow from '~icons/material-symbols-light/arrow-circle-right-outline-rounded';
     import IGIcon from '~icons/mdi/instagram';
@@ -108,7 +110,7 @@
 </section>
 
 <!-- Gallery showcase -->
-<section class="bg-background px-28">
+<section class="bg-background px-28 pb-20">
     <div class="">
         <!-- Title & description & show more btn -->
         <div class="flex flex-col items-center text-textSecondary gap-2 mb-6">
@@ -136,6 +138,18 @@
 </section>
 
 <!-- About me -->
-<section>
+<section class="bg-background py-40 bg-contain bg-no-repeat bg-center" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.8) 100%), url({FireImg});">
+    <div class="flex px-28 justify-center gap-8">
+        <!-- My image -->
+        <img src={MyImg} alt="" width="300px">
 
+        <!-- About me text -->
+        <div class="text-textSecondary w-3/6 flex items-center">
+            <div class="">
+                <h2 class="font-heading text-4xl text-textPrimary">Moja zgodba</h2>
+                <p class="mb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui cumque sapiente totam eum sunt, ex doloremque repudiandae voluptate quisquam ipsam, veniam nostrum aut atque hic rerum labore perspiciatis quae. Veritatis.</p>
+                <a href="/zgodba" class="btn">Izvedi vec</a>
+            </div>
+        </div>
+    </div>
 </section>

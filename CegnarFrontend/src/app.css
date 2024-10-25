@@ -32,6 +32,10 @@
         @apply text-start order-1 pe-0 ps-4;
     }
 
+    .flipped .card-text > img {
+        @apply -left-32;
+    }
+
     .flipped .card-images {
         @apply order-2;
     }
