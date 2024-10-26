@@ -26,7 +26,6 @@
  * ```
  */
 declare module '$env/static/private' {
-	export const NVM_INC: string;
 	export const MANPATH: string;
 	export const rvm_use_flag: string;
 	export const TERM_PROGRAM: string;
@@ -104,7 +103,6 @@ declare module '$env/static/private' {
 	export const rvm_alias_expanded: string;
 	export const GEM_PATH: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
-	export const NVM_BIN: string;
 	export const RUBY_ROOT: string;
 	export const npm_config_user_agent: string;
 	export const rvm_nightly_flag: string;
@@ -155,7 +153,6 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
-		NVM_INC: string;
 		MANPATH: string;
 		rvm_use_flag: string;
 		TERM_PROGRAM: string;
@@ -233,7 +230,6 @@ declare module '$env/dynamic/private' {
 		rvm_alias_expanded: string;
 		GEM_PATH: string;
 		VSCODE_GIT_IPC_HANDLE: string;
-		NVM_BIN: string;
 		RUBY_ROOT: string;
 		npm_config_user_agent: string;
 		rvm_nightly_flag: string;

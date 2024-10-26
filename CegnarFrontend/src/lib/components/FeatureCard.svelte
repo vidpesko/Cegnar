@@ -18,7 +18,7 @@
     <div class="text-textSecondary text-end flex items-center pe-4 card-text relative">
         <div class="">
             <h1 class="text-4xl font-heading text-textPrimary">{heading}</h1>
-            <p class="mb-10">{description}</p>
+            <p class="mb-10 w-5/6 ms-auto">{description}</p>
             <a href="/kontakt" class="btn">Zanima me</a>
         </div>
         <img src={FireImg} alt="" class="absolute opacity-15 -right-32 -top-52 -rotate-12">

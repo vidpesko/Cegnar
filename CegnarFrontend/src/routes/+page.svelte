@@ -92,10 +92,11 @@
 </section>
 
 <!-- CTA -->
-<section class="bg-orange-500 h-[20vh]">
-    <div class="flex flex-col justify-center items-center h-full">
-        <h1>Poklici me!</h1>
-        <a href="/kontakt" class="btn">Kontakt</a>
+<section class="py-16">
+    <div class="w-4/6 mx-auto text-center">
+        <h1 class="text-background text-2xl font-heading text-center relative pb-2 mb-4 after:content-[''] after:bg-textPrimary after:w-10 after:h-2 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:rounded">Poklici me!</h1>
+        <p class="text-center mb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident animi, totam alias dolor voluptatem nesciunt aut nisi sequi error vel consequatur quam vitae dolore porro? Tempora repellendus beatae neque quasi?</p>
+        <a href="/kontakt" class="btn btn-dark">Kontakt</a>
     </div>
 </section>
 
@@ -115,7 +116,7 @@
         <!-- Title & description & show more btn -->
         <div class="flex flex-col items-center text-textSecondary gap-2 mb-6">
             <h1 class="font-heading text-4xl text-textPrimary">Zadnji izdelki</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, ullam!</p>
+            <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, ullam!</p>
             <a href="/galerija" class="btn">Poglej vse</a>
         </div>
 
