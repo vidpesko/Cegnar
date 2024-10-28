@@ -15,7 +15,7 @@
 <footer class="bg-background text-white border-t-[0.5px] relative">
     <div class="w-4/6 mx-auto">
         <!-- Columns -->
-        <div class="py-10 md:flex-row flex flex-col justify-between items-start gap-8">
+        <div class="pt-10 pb-4 md:flex-row flex flex-col justify-between items-start gap-8">
             <!-- 1. column - title, navigation -->
             <div class="footer-column">
                 <div class="">
@@ -76,9 +76,9 @@
         </div>
         
         <!-- Social & shoutout -->
-        <div class="relative after:content-[''] after:absolute after:top-0 after:bg-textSecondary after:w-full after:h-[0.5px] after:left-1/2 after:-translate-x-1/2">
+        <div class="">
             <!-- Social -->
-            <div class="py-10">
+            <div class="py-5">
                 <ul class="footer-social flex justify-center gap-4">
                     <li><a href="https://www.instagram.com/cegnarblacksmithing/"><IGIcon /></a></li>
                     <li><a href="https://www.instagram.com/cegnarblacksmithing/"><FacebookIcon /></a></li>

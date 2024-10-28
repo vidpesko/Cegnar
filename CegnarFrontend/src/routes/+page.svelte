@@ -1,6 +1,6 @@
 <script>
     // Images
-    import HeroVideo from "$lib/static/videos/cegnar-movie-no-audio.mp4";
+    import HeroVideo from "$lib/static/videos/cegnar-movie-small.mp4";
     import HandleImg from "$lib/static/images/handle3.png";
     import BladeImg from "$lib/static/images/blade.png";
     import WoodTextureImg from "$lib/static/images/texture3.jpg";
@@ -19,7 +19,7 @@
 </script>
 
 <!-- Hero section -->
-<section class="xl:h-screen bg-background md:p-6 p-2 flex xl:flex-row flex-col gap-4">
+<section class="xl:h-screen bg-background md:p-4 p-2 flex xl:flex-row flex-col gap-4">
     <!-- Main image / video -->
     <div class="hero-main w-full xl:h-full md:h-[600px] rounded-2xl xl:basis-[70%] h-[80vh] shrink grow relative">
         <!-- Hero background video -->
@@ -29,14 +29,14 @@
 
         <!-- Hero navbar -->
         <div class="xl:ms-10 xl:mt-10 mt-4 xl:left-0 xl:translate-x-0 left-1/2 -translate-x-1/2 z-20 absolute">
-            <div class="flex justify-center items-center bg-background rounded-lg p-4 gap-4">
+            <div class="flex md:gap-10 md:justify-between justify-center items-center bg-background rounded-lg p-4 gap-4">
                 <!-- Menu -->
-                <div class="text-textPrimary font-2xl border-[0.5px] p-1 rounded">
+                <div class="text-textPrimary font-2xl border-[0.5px] p-1 rounded md:hidden">
                     <CloseToMenuIcon />
                 </div>
 
                 <!-- Logo -->
-                <img src="https://framerusercontent.com/images/x0JzSofUJm2jTIMMg5jbgdRYVzU.webp" width="110px" class="object-contain" alt="logo">
+                <p class="text-white text-2xl">C</p>
 
                 <!-- Links -->
                 <ul class="md:inline-flex items-center gap-4 textPrimary hidden">
@@ -52,7 +52,7 @@
 
         <!-- Hero title -->
         <div class="absolute md:bottom-10 md:left-10 md:translate-x-0 md:translate-y-0 bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 md:w-full w-5/6 xl:text-start text-center">
-            <h1 class="text-textPrimary md:text-8xl text-4xl font-heading">Kakovost</h1>
+            <h1 class="text-textPrimary md:text-8xl text-5xl font-heading">Kakovost</h1>
             <p class="text-textSecondary">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, ipsam?</p>
         </div>
 
@@ -69,7 +69,7 @@
     <!-- Links / "sidebar" -->
     <div class="flex xl:flex-col lg:max-xl:h-[180px] md:max-lg:h-[150px] xl:basis-[30%] gap-4 xl:shrink-0 xl:grow-0 2x xl:max-w-[300px] 2xl:max-w-[500px]">
         <!-- Gallery -->
-        <div class="hero-link md:bg-[url('https://picsum.photos/200/300')]">
+        <a href="/galerija" class="hero-link md:bg-[url('https://picsum.photos/200/300')]">
             <!-- Large screen sidebar link -->
             <div>
                 <div>
@@ -84,10 +84,10 @@
                 Galerija
                 <RightArrow class="text-lg" />
             </div>
-        </div>
+        </a>
     
         <!-- Contact -->
-        <div class="hero-link md:bg-[url('https://picsum.photos/200/300')]">
+        <a href="/kontakt" class="hero-link md:bg-[url('https://picsum.photos/200/300')]">
             <div>
                 <div>
                     Kontakt
@@ -101,10 +101,10 @@
                 Kontakt
                 <RightArrow class="text-lg" />
             </div>
-        </div>
+        </a>
     
         <!-- Story -->
-        <div class="hero-link md:bg-[url('https://picsum.photos/200/300')]">
+        <a href="/zgodba" class="hero-link md:bg-[url('https://picsum.photos/200/300')]">
             <div>
                 <div>
                     Zgodba
@@ -118,7 +118,7 @@
                 Zgodba
                 <RightArrow class="text-lg" />
             </div>
-        </div>
+        </a>
     </div>
 </section>
 
