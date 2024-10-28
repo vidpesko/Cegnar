@@ -16,6 +16,9 @@
     import FeatureCard from "$lib/components/FeatureCard.svelte";
     // Image slider
     import { Splide, SplideSlide } from '@splidejs/svelte-splide';
+
+    export let data;
+    const home = data.home.items[0];
 </script>
 
 <!-- Hero section -->
@@ -52,8 +55,8 @@
 
         <!-- Hero title -->
         <div class="absolute md:bottom-10 md:left-10 md:translate-x-0 md:translate-y-0 bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 md:w-full w-5/6 xl:text-start text-center">
-            <h1 class="text-textPrimary md:text-8xl text-5xl font-heading">Kakovost</h1>
-            <p class="text-textSecondary">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, ipsam?</p>
+            <h1 class="text-textPrimary md:text-8xl text-5xl font-heading">{home.heading}</h1>
+            <p class="text-textSecondary">{home.smallText}</p>
         </div>
 
         <!-- Social -->
