@@ -19,25 +19,43 @@
     }
     /* Hero image links */
     .hero-link {
-        @apply w-full h-full bg-red-100 rounded-2xl;
+        @apply w-full h-full md:bg-red-100 md:rounded-2xl opacity-70 transition-all duration-200 hover:opacity-100;
     }
 
-    .hero-link > div {
-        @apply relative bottom-0 right-0 h-full w-full cursor-pointer;
+    /* md: and larger screens */
+    .hero-link > div:first-child {
+        @apply relative bottom-0 right-0 h-full w-full cursor-pointer hidden md:block;
     }
 
-    .hero-link > div > div {
-        @apply absolute bottom-0 right-0 bg-background text-white pt-2 px-2 pe-3 rounded-tl-lg flex items-center gap-1 uppercase leading-none;
+    .hero-link > div:first-child > div {
+        @apply absolute bottom-0 right-0 bg-background text-white pt-2 px-2 pe-1 rounded-tl-lg flex items-center gap-2 uppercase leading-none;
+    }
+
+    .hero-link > div:first-child span {
+        @apply rounded-full p-1 border bg-stone-600 overflow-hidden;
+    }
+
+    .hero-link:hover > div:first-child svg {
+        @apply animate-spinningArrow;
+    }
+
+    /* smaller than md: screens */
+    .hero-link > div:last-child {
+        @apply md:hidden flex text-white border-[0.5px] rounded-2xl justify-center items-center py-1 gap-1;
+    }
+
+    .hero-link>div:last-child svg {
+        @apply border rounded-full bg-stone-600 p-0.5;
     }
 
 
     /* Features section */
     .flipped .card-text {
-        @apply text-start order-1 pe-0 ps-4;
+        @apply md:text-start order-1 pe-0 ps-4;
     }
 
     .flipped .card-text > div > p {
-        @apply ms-0 me-auto;
+        @apply md:ms-0 md:me-auto text-start;
     }
 
     .flipped .card-text > img {
@@ -68,6 +86,31 @@
     /* Footer */
     .footer-social li {
         @apply border-[0.5px] p-2 rounded-full text-sm cursor-pointer hover:text-background hover:bg-textPrimary hover:border-transparent transition-all duration-200
+    }
+
+    .footer-column {
+        @apply relative w-full;
+    }
+
+    .footer-column h3 {
+        @apply text-lg font-bold uppercase;
+    }
+
+    .footer-column > div:first-child {
+        @apply mb-6 after:my-3 after:content-[''] after:w-full after:h-[0.5px] after:bg-textSecondary after:absolute after:left-0;
+    }
+
+    .footer-column li {
+        @apply my-2 flex gap-2 items-center;
+    }
+
+    .footer-column li svg {
+        @apply text-textSecondary shrink-0;
+    }
+
+    /* Forms */
+    .input {
+        @apply border bg-transparent rounded ps-1;
     }
 }
 

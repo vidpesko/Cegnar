@@ -1,16 +1,17 @@
 <script>
     // Images
-    import HeroImg from "$lib/static/images/hero1.jpg";
+    import HeroVideo from "$lib/static/videos/cegnar-movie-no-audio.mp4";
     import HandleImg from "$lib/static/images/handle3.png";
     import BladeImg from "$lib/static/images/blade.png";
     import WoodTextureImg from "$lib/static/images/texture3.jpg";
     import MyImg from "$lib/static/images/about2.jpg";
     import FireImg from "$lib/static/images/fire-texture2.jpg";
     // Icons
-    import RightArrow from '~icons/material-symbols-light/arrow-circle-right-outline-rounded';
+    import RightArrow from '~icons/material-symbols/arrow-forward-rounded'
     import IGIcon from '~icons/mdi/instagram';
     import FacebookIcon from '~icons/mdi/facebook-box';
     import EmailIcon from '~icons/mdi/email';
+    import CloseToMenuIcon from '~icons/line-md/close-to-menu-alt-transition'
     // Components
     import FeatureCard from "$lib/components/FeatureCard.svelte";
     // Image slider
@@ -18,32 +19,40 @@
 </script>
 
 <!-- Hero section -->
-<section class="xl:h-screen bg-background p-6 flex xl:flex-row flex-col gap-4">
+<section class="xl:h-screen bg-background md:p-6 p-2 flex xl:flex-row flex-col gap-4">
     <!-- Main image / video -->
-    <div class="hero-main w-full xl:h-full lg:h-[600px] rounded-2xl xl:basis-[70%] shrink grow bg-center relative" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 59%), url('{HeroImg}');">
+    <div class="hero-main w-full xl:h-full md:h-[600px] rounded-2xl xl:basis-[70%] h-[80vh] shrink grow relative">
+        <!-- Hero background video -->
+        <video class="absolute w-full h-full object-cover rounded-2xl md:opacity-60 opacity-40 z-0" src={HeroVideo} loop autoplay muted>
+            Your browser does not support video tag
+        </video>
+
         <!-- Hero navbar -->
-        <div class="flex xl:justify-start xl:ms-10 xl:mt-10 lg:mt-4 lg:justify-center">
-            <div class="inline-flex justify-center bg-background rounded-lg p-4 gap-4">
+        <div class="xl:ms-10 xl:mt-10 mt-4 xl:left-0 xl:translate-x-0 left-1/2 -translate-x-1/2 z-20 absolute">
+            <div class="flex justify-center items-center bg-background rounded-lg p-4 gap-4">
                 <!-- Menu -->
-                <div class="text-textPrimary font-2xl">
-                    X
+                <div class="text-textPrimary font-2xl border-[0.5px] p-1 rounded">
+                    <CloseToMenuIcon />
                 </div>
 
                 <!-- Logo -->
                 <img src="https://framerusercontent.com/images/x0JzSofUJm2jTIMMg5jbgdRYVzU.webp" width="110px" class="object-contain" alt="logo">
 
                 <!-- Links -->
-                <ul class="inline-flex items-center gap-4 textPrimary">
+                <ul class="md:inline-flex items-center gap-4 textPrimary hidden">
                     <li class="hero-navbar-link">Galerija</li>
                     <li class="hero-navbar-link">Zgodba</li>
                     <li class="hero-navbar-link"><a href="/kontakt" class="border rounded p-2">Kontakt</a></li>
                 </ul>
+                <div class="hero-navbar-link md:hidden">
+                    <a href="/kontakt" class="border rounded p-2">Kontakt</a>
+                </div>
             </div>
         </div>
-        
+
         <!-- Hero title -->
-        <div class="absolute bottom-10 left-10 w-full xl:text-start text-center">
-            <h1 class="text-textPrimary text-8xl font-heading">Kakovost</h1>
+        <div class="absolute md:bottom-10 md:left-10 md:translate-x-0 md:translate-y-0 bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 md:w-full w-5/6 xl:text-start text-center">
+            <h1 class="text-textPrimary md:text-8xl text-4xl font-heading">Kakovost</h1>
             <p class="text-textSecondary">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, ipsam?</p>
         </div>
 
@@ -58,34 +67,56 @@
     </div>
 
     <!-- Links / "sidebar" -->
-    <div class="flex xl:flex-col lg:max-xl:h-[250px] xl:basis-[30%] gap-4 xl:shrink-0 xl:grow-0 2x xl:max-w-[300px] 2xl:max-w-[500px]">
+    <div class="flex xl:flex-col lg:max-xl:h-[180px] md:max-lg:h-[150px] xl:basis-[30%] gap-4 xl:shrink-0 xl:grow-0 2x xl:max-w-[300px] 2xl:max-w-[500px]">
         <!-- Gallery -->
-        <div class="hero-link" style="background-image: url('https://picsum.photos/200/300')">
+        <div class="hero-link md:bg-[url('https://picsum.photos/200/300')]">
+            <!-- Large screen sidebar link -->
             <div>
                 <div>
                     Galerija
-                    <RightArrow class="text-2xl" />
+                    <span>
+                        <RightArrow />
+                    </span>
                 </div>
+            </div>
+            <!-- Mobile screen sidebar link -->
+            <div>
+                Galerija
+                <RightArrow class="text-lg" />
             </div>
         </div>
     
         <!-- Contact -->
-        <div class="hero-link" style="background-image: url('https://picsum.photos/200/300')">
+        <div class="hero-link md:bg-[url('https://picsum.photos/200/300')]">
             <div>
                 <div>
                     Kontakt
-                    <RightArrow class="text-2xl" />
+                    <span>
+                        <RightArrow />
+                    </span>
                 </div>
+            </div>
+            <!-- Mobile screen sidebar link -->
+            <div>
+                Kontakt
+                <RightArrow class="text-lg" />
             </div>
         </div>
     
         <!-- Story -->
-        <div class="hero-link" style="background-image: url('https://picsum.photos/200/300')">
+        <div class="hero-link md:bg-[url('https://picsum.photos/200/300')]">
             <div>
                 <div>
                     Zgodba
-                    <RightArrow class="text-2xl" />
+                    <span>
+                        <RightArrow />
+                    </span>
                 </div>
+            </div>
+            <!-- Mobile screen sidebar link -->
+            <div>
+                Zgodba
+                <RightArrow class="text-lg" />
             </div>
         </div>
     </div>
@@ -139,10 +170,10 @@
 </section>
 
 <!-- About me -->
-<section class="bg-background py-40 bg-contain bg-no-repeat bg-center" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.8) 100%), url({FireImg});">
-    <div class="flex px-28 justify-center gap-8">
+<section class="bg-background py-20 bg-contain bg-no-repeat bg-center" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.8) 100%), url({FireImg});">
+    <div class="md:flex md:px-28 px-10 md:justify-center gap-8">
         <!-- My image -->
-        <img src={MyImg} alt="" width="300px">
+        <img src={MyImg} alt="" width="300px" height="100px">
 
         <!-- About me text -->
         <div class="text-textSecondary w-3/6 flex items-center">
@@ -153,4 +184,9 @@
             </div>
         </div>
     </div>
+</section>
+
+<!-- Instagram posts -->
+<section class="bg-white h-[50vh] text-center">
+    <h1>Zadnje objave</h1>
 </section>

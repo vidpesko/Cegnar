@@ -13,27 +13,84 @@
 
 <!-- Footer -->
 <footer class="bg-background text-white border-t-[0.5px] relative">
-    
-    <!-- Links & logo -->
-    <div class="w-4/6 py-10">
-        <h1>Cegu</h1>
-
-    </div>
-
-    <!-- Social & shoutout -->
-    <div class="relative after:content-[''] after:absolute after:top-0 after:bg-textSecondary after:w-5/6 after:h-[0.5px] after:left-1/2 after:-translate-x-1/2">
-        <!-- Social -->
-        <div class="py-10">
-            <ul class="footer-social flex justify-center gap-4">
-                <li><a href="https://www.instagram.com/cegnarblacksmithing/"><IGIcon /></a></li>
-                <li><a href="https://www.instagram.com/cegnarblacksmithing/"><FacebookIcon /></a></li>
-                <li><a href="https://www.instagram.com/cegnarblacksmithing/"><EmailIcon /></a></li>
-            </ul>
+    <div class="w-4/6 mx-auto">
+        <!-- Columns -->
+        <div class="py-10 md:flex-row flex flex-col justify-between items-start gap-8">
+            <!-- 1. column - title, navigation -->
+            <div class="footer-column">
+                <div class="">
+                    <h3 class="">Povezave</h3>
+                </div>
+                <ul>
+                    <li>Domov</li>
+                    <li>Galerija</li>
+                    <li>Zgodba</li>
+                    <li>Kontakt</li>
+                </ul>
+            </div>
+            <!-- 2. column - contact, home address -->
+            <div class="footer-column">
+                <div class="">
+                    <h3>Kontakt</h3>
+                </div>
+                <ul>
+                    <li>
+                        <EmailIcon />
+                        <p>
+                            064 182 101
+                        </p>
+                    </li>
+                    <li>
+                        <EmailIcon />
+                        <p>
+                            vid@pesko.si
+                        </p>
+                    </li>
+                    <li style="align-items: start !important;">
+                        <EmailIcon class="mt-[0.5px]" />
+                        <p>
+                            <b>Delavnica:</b><br>
+                            Partizanska pot 17,<br>
+                            4000 Kranj,<br>
+                            Slovenija
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <!-- 3. column - contact form -->
+            <div class="footer-column">
+                <div class="">
+                    <h3>Pusti mi sporočilo</h3>
+                </div>
+                <form action="" class="flex flex-col gap-4 pt-2">
+                    <!-- Name -->
+                    <input type="text" class="input" placeholder="Ime" required>
+                    <!-- Email -->
+                    <input type="email" class="input" placeholder="Vaš email" required>
+                    <!-- Message -->
+                    <textarea name="" id="" rows="5" class="input resize-y" placeholder="Sporočilo" required></textarea>
+                    <!-- Submit -->
+                    <button type="submit" class="btn">POŠLJI</button>
+                </form>
+            </div>
         </div>
         
-        <!-- Designed by me -->
-        <div class="w-full bg-red-400 text-center">
-            <a>Izdelal Vid</a>
+        <!-- Social & shoutout -->
+        <div class="relative after:content-[''] after:absolute after:top-0 after:bg-textSecondary after:w-full after:h-[0.5px] after:left-1/2 after:-translate-x-1/2">
+            <!-- Social -->
+            <div class="py-10">
+                <ul class="footer-social flex justify-center gap-4">
+                    <li><a href="https://www.instagram.com/cegnarblacksmithing/"><IGIcon /></a></li>
+                    <li><a href="https://www.instagram.com/cegnarblacksmithing/"><FacebookIcon /></a></li>
+                    <li><a href="https://www.instagram.com/cegnarblacksmithing/"><EmailIcon /></a></li>
+                </ul>
+            </div>
+            
         </div>
+    </div>
+
+    <!-- Designed by me -->
+    <div class="w-full bg-red-400 text-center">
+        <a>Izdelal Vid</a>
     </div>
 </footer>
