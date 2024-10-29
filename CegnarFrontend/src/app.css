@@ -19,7 +19,7 @@
     }
     /* Hero image links */
     .hero-link {
-        @apply w-full h-full md:bg-red-100 md:rounded-2xl opacity-70 transition-all duration-200 hover:opacity-100;
+        @apply w-full h-full md:bg-red-100 rounded-2xl opacity-70 transition-all duration-200 hover:opacity-100;
     }
 
     /* md: and larger screens */

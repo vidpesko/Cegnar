@@ -14,11 +14,13 @@
     import CloseToMenuIcon from '~icons/line-md/close-to-menu-alt-transition'
     // Components
     import FeatureCard from "$lib/components/FeatureCard.svelte";
+    import GalleryImage from "$lib/components/GalleryImage.svelte";
     // Image slider
     import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 
     export let data;
-    const home = data.home.items[0];
+    const home = data.home;
+    const gallery = data.gallery;
 </script>
 
 <!-- Hero section -->
@@ -56,7 +58,7 @@
         <!-- Hero title -->
         <div class="absolute md:bottom-10 md:left-10 md:translate-x-0 md:translate-y-0 bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 md:w-full w-5/6 xl:text-start text-center">
             <h1 class="text-textPrimary md:text-8xl text-5xl font-heading">{home.heading}</h1>
-            <p class="text-textSecondary">{home.smallText}</p>
+            <p class="text-textSecondary">{home.hero_small_text}</p>
         </div>
 
         <!-- Social -->
@@ -70,67 +72,34 @@
     </div>
 
     <!-- Links / "sidebar" -->
-    <div class="flex xl:flex-col lg:max-xl:h-[180px] md:max-lg:h-[150px] xl:basis-[30%] gap-4 xl:shrink-0 xl:grow-0 2x xl:max-w-[300px] 2xl:max-w-[500px]">
-        <!-- Gallery -->
-        <a href="/galerija" class="hero-link md:bg-[url('https://picsum.photos/200/300')]">
+    <div class="flex xl:flex-col lg:max-xl:h-[180px] md:max-lg:h-[150px] xl:basis-[20%] gap-4 xl:shrink-0 xl:grow-0 2x xl:max-w-[300px] 2xl:max-w-[500px]">
+        {#each home.hero_sidebar_links as link}
+        <a href={link.destination} style="background-image: url('{link.image.full_url}');" class="hero-link bg-no-repeat bg-background bg-center bg-cover">
             <!-- Large screen sidebar link -->
             <div>
                 <div>
-                    Galerija
+                    {link.label}
                     <span>
                         <RightArrow />
                     </span>
                 </div>
             </div>
             <!-- Mobile screen sidebar link -->
-            <div>
-                Galerija
+            <div class="bg-background">
+                {link.label}
                 <RightArrow class="text-lg" />
             </div>
         </a>
-    
-        <!-- Contact -->
-        <a href="/kontakt" class="hero-link md:bg-[url('https://picsum.photos/200/300')]">
-            <div>
-                <div>
-                    Kontakt
-                    <span>
-                        <RightArrow />
-                    </span>
-                </div>
-            </div>
-            <!-- Mobile screen sidebar link -->
-            <div>
-                Kontakt
-                <RightArrow class="text-lg" />
-            </div>
-        </a>
-    
-        <!-- Story -->
-        <a href="/zgodba" class="hero-link md:bg-[url('https://picsum.photos/200/300')]">
-            <div>
-                <div>
-                    Zgodba
-                    <span>
-                        <RightArrow />
-                    </span>
-                </div>
-            </div>
-            <!-- Mobile screen sidebar link -->
-            <div>
-                Zgodba
-                <RightArrow class="text-lg" />
-            </div>
-        </a>
+        {/each}
     </div>
 </section>
 
 <!-- CTA -->
 <section class="py-16">
     <div class="w-4/6 mx-auto text-center">
-        <h1 class="text-background text-2xl font-heading text-center relative pb-2 mb-4 after:content-[''] after:bg-textPrimary after:w-10 after:h-2 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:rounded">Poklici me!</h1>
-        <p class="text-center mb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident animi, totam alias dolor voluptatem nesciunt aut nisi sequi error vel consequatur quam vitae dolore porro? Tempora repellendus beatae neque quasi?</p>
-        <a href="/kontakt" class="btn btn-dark">Kontakt</a>
+        <h1 class="text-background text-2xl font-heading text-center relative pb-2 mb-4 after:content-[''] after:bg-textPrimary after:w-10 after:h-2 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:rounded">{home.cta_title}</h1>
+        <p class="text-center mb-6">{@html home.cta_small_text}</p>
+        <a href="/kontakt" class="btn btn-dark">{home.cta_btn_text}</a>
     </div>
 </section>
 
@@ -138,9 +107,9 @@
 <section class="bg-background py-28">
     <!-- Cards -->
     <div class="mx-20">
-        <FeatureCard knifeImg={HandleImg} textureImg={WoodTextureImg} heading="Izjemno oblikovanje" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid totam sunt facere omnis error fugiat?" buttonText="Izvedi več" />
-
-        <FeatureCard knifeImg={BladeImg} textureImg={WoodTextureImg} heading="Personalizacija" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid totam sunt facere omnis error fugiat?" buttonText="Izvedi več" flipped />
+        {#each home.home_page_feature_card as card, i}
+        <FeatureCard knifeImg={card.knife_image.full_url} textureImg={WoodTextureImg} heading={card.heading} description={card.description} buttonText={card.btn_label} flipped={Math.abs(i % 2) == 1}/>
+        {/each}
     </div>
 </section>
 
@@ -149,9 +118,9 @@
     <div class="">
         <!-- Title & description & show more btn -->
         <div class="flex flex-col items-center text-textSecondary gap-2 mb-6">
-            <h1 class="font-heading text-4xl text-textPrimary">Zadnji izdelki</h1>
-            <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, ullam!</p>
-            <a href="/galerija" class="btn">Poglej vse</a>
+            <h1 class="font-heading text-4xl text-textPrimary">{home.gallery_title}</h1>
+            <p class="mb-2">{@html home.gallery_description}</p>
+            <a href="/galerija" class="btn">{home.gallery_btn_label}</a>
         </div>
 
         <!-- Image slider -->
@@ -159,15 +128,13 @@
             perPage: 3,
             gap: "1em",
             autoWidth: true,
+            height: "300px"
         }}>
-            {#each Array(5) as _}
+            {#each gallery.gallery_images as image}
             <SplideSlide>
-                <img src="https://picsum.photos/300/300" alt="Slika 1"/>
+                <GalleryImage url={image.image.full_url} model={image.knife_model} description={image.image_description} />
             </SplideSlide>
             {/each}
-            <SplideSlide>
-                <img src="https://picsum.photos/500/300" alt="Slika 1"/>
-            </SplideSlide>
         </Splide>
     </div>
 </section>

@@ -16,20 +16,25 @@ async function get(path) {
 }
 
 export async function getHomePage() {
-    let response = await get("/pages?type=home.HomePage&fields=*");
+    let response = await get("/pages/3/?fields=*");
     return response;
 }
 
-export async function getExperiences() {
-    let url = BASE_PATH + "/list-experiences/";
-
-    const response = await fetch(url);
-
-    if (!response.ok) {
-        return {
-            error: response.status
-        }
+export async function getGallery(onlyImg=false, limit=0) {
+    let path = "/pages/4?";
+    if (limit !== 0) {
+        path = path + "limit=" + String(limit) + "&";
     }
 
-    return await response.json();
+    if (onlyImg) {
+        path = path + "fields=gallery_images";
+    }
+
+    let response = await get(path);
+    return response
+}
+
+export async function getBaseData() {
+    let response = await get("/");
+    return response;
 }
