@@ -22,14 +22,14 @@
         window.addEventListener("scroll", () => {
             scrollPosition = window.scrollY;
             deltaScrollPosition = scrollPosition - prevScrollPosition;
-            if ((deltaScrollPosition > 0) && (deltaScrollPosition > 50) && (showNavbar == true)) {
+            if ((deltaScrollPosition > 100) && (showNavbar == true)) {
                 showNavbar = false;
                 prevScrollPosition = scrollPosition;
                 deltaScrollPosition = 0;
             } else if ((deltaScrollPosition < 0) && (deltaScrollPosition > -50)) {
                 showNavbar = true;
                 prevScrollPosition = scrollPosition;
-            } else if (Math.abs(deltaScrollPosition) > 50) {
+            } else if (Math.abs(deltaScrollPosition) > 100) {
                 deltaScrollPosition = 0;
                 prevScrollPosition = scrollPosition;
             } 

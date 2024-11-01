@@ -15,13 +15,38 @@
     // Components
     import FeatureCard from "$lib/components/FeatureCard.svelte";
     import GalleryImage from "$lib/components/GalleryImage.svelte";
+    import Navbar from "$lib/components/Navbar.svelte";
     // Image slider
     import { Splide, SplideSlide } from '@splidejs/svelte-splide';
+    // Other
+    import { onMount } from "svelte";
 
     export let data;
     const home = data.home;
     const gallery = data.gallery;
+
+    // Navbar logic
+    let showNavbar = false;
+    onMount(() => {
+        // When on hero section hide navbar, when scrolled past hero section, show it
+        let windowHeight = window.innerHeight;
+        window.addEventListener("scroll", () => {
+            let scrollPosition = window.scrollY;
+
+            if (scrollPosition > windowHeight) {
+                showNavbar = true;
+            } else {
+                showNavbar = false;
+            }
+        });
+    });
 </script>
+
+
+<!-- Navbar -->
+{#if showNavbar}
+<Navbar />
+{/if}
 
 <!-- Hero section -->
 <section class="xl:h-screen bg-background md:p-4 p-2 flex xl:flex-row flex-col gap-4">
