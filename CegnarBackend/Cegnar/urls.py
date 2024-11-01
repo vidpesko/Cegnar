@@ -10,6 +10,7 @@ from search import views as search_views
 from .api import api_router
 
 urlpatterns = [
+    path("api/settings/", include("base.urls")),
     path("api/", api_router.urls),
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),

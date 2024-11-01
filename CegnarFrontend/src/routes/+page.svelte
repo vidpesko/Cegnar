@@ -57,8 +57,8 @@
 
         <!-- Hero title -->
         <div class="absolute md:bottom-10 md:left-10 md:translate-x-0 md:translate-y-0 bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 md:w-full w-5/6 xl:text-start text-center">
-            <h1 class="text-textPrimary md:text-8xl text-5xl font-heading">{home.heading}</h1>
-            <p class="text-textSecondary">{home.hero_small_text}</p>
+            <h1 class="text-textPrimary md:text-8xl text-5xl font-heading">{@html home.heading}</h1>
+            <p class="text-textSecondary text-lg">{home.hero_small_text}</p>
         </div>
 
         <!-- Social -->
@@ -143,13 +143,13 @@
 <section class="bg-background py-20 bg-contain bg-no-repeat bg-center" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.8) 100%), url({FireImg});">
     <div class="md:flex md:px-28 px-10 md:justify-center gap-8">
         <!-- My image -->
-        <img src={MyImg} alt="" width="300px" height="100px">
+        <img src={home.about_image.full_url} alt="Jaz">
 
         <!-- About me text -->
         <div class="text-textSecondary w-3/6 flex items-center">
             <div class="">
                 <h2 class="font-heading text-4xl text-textPrimary">Moja zgodba</h2>
-                <p class="mb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui cumque sapiente totam eum sunt, ex doloremque repudiandae voluptate quisquam ipsam, veniam nostrum aut atque hic rerum labore perspiciatis quae. Veritatis.</p>
+                <p class="mb-10">{@html home.about_description}</p>
                 <a href="/zgodba" class="btn">Izvedi vec</a>
             </div>
         </div>

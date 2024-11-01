@@ -7,6 +7,11 @@
     import IGIcon from '~icons/mdi/instagram';
     import FacebookIcon from '~icons/mdi/facebook-box';
     import EmailIcon from '~icons/mdi/email';
+    import PhoneIcon from '~icons/mdi/phone'
+    import MapMarkerIcon from '~icons/mdi/map-marker'
+
+    export let data;
+    let settings = data.settings;
 </script>
 
 <slot />
@@ -35,25 +40,23 @@
                 </div>
                 <ul>
                     <li>
-                        <EmailIcon />
+                        <PhoneIcon />
                         <p>
-                            064 182 101
+                            {settings.phone_number}
                         </p>
                     </li>
                     <li>
                         <EmailIcon />
                         <p>
-                            vid@pesko.si
+                            {settings.email}
                         </p>
                     </li>
                     <li style="align-items: start !important;">
-                        <EmailIcon class="mt-[0.5px]" />
-                        <p>
-                            <b>Delavnica:</b><br>
-                            Partizanska pot 17,<br>
-                            4000 Kranj,<br>
-                            Slovenija
-                        </p>
+                        <MapMarkerIcon class="mt-1" />
+                        <div class="">
+                            <p><b>Delavnica:</b></p>
+                            {@html settings.workshop_address}
+                        </div>
                     </li>
                 </ul>
             </div>

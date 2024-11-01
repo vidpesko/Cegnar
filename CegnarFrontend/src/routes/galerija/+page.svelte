@@ -10,17 +10,17 @@
     <div class="h-full w-5/6 mx-auto flex flex-wrap" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
         <div class="column">
             {#each Array(10) as _}
-            <GalleryImage url="https://picsum.photos/500/300" />
+            <GalleryImage fullHeight={false} url="https://picsum.photos/500/300" />
             {/each}
         </div>
         <div class="column">
             {#each Array(10) as _}
-            <GalleryImage url="https://picsum.photos/500/300" />
+            <GalleryImage fullHeight={false} url="https://picsum.photos/500/300" />
             {/each}
         </div>
         <div class="column">
             {#each Array(10) as _}
-            <GalleryImage url="https://picsum.photos/500/300" />
+            <GalleryImage fullHeight={false} url="https://picsum.photos/500/300" />
             {/each}
         </div>
     </div>

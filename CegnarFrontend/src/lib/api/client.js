@@ -34,7 +34,7 @@ export async function getGallery(onlyImg=false, limit=0) {
     return response
 }
 
-export async function getBaseData() {
-    let response = await get("/");
+export async function getSettings() {
+    let response = await get("/settings/social");
     return response;
 }
