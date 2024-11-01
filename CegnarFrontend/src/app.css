@@ -111,7 +111,7 @@
     }
 
     .footer-column li {
-        @apply my-2 flex gap-2 items-center text-sm;
+        @apply my-2 flex gap-2 items-center text-sm hover:underline hover:cursor-pointer hover:text-textSecondary;
     }
 
     .footer-column li svg {

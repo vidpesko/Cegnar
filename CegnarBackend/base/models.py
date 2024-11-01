@@ -19,6 +19,7 @@ class PersonalSettings(BaseGenericSetting):
     email = models.EmailField(verbose_name="Email", blank=True)
     phone_number = models.CharField(max_length=20, verbose_name="Telefon", blank=True)
     workshop_address = RichTextField(verbose_name="Naslov delavnice", blank=True)
+    workshop_address_raw = models.CharField(max_length=100, verbose_name="Naslov delavnice brez novih vrstic", blank=True)
 
     panels = [
         MultiFieldPanel(
@@ -32,7 +33,8 @@ class PersonalSettings(BaseGenericSetting):
             [
                 FieldPanel("email"),
                 FieldPanel("phone_number"),
-                FieldPanel("workshop_address")
+                FieldPanel("workshop_address"),
+                FieldPanel("workshop_address_raw"),
             ],
             "Nastavitve osebnih podatkov",
         )

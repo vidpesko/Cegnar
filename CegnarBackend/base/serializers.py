@@ -12,4 +12,5 @@ class SocialSettingsSerializer(serializers.ModelSerializer):
             "email",
             "phone_number",
             "workshop_address",
+            "workshop_address_raw",
         ]

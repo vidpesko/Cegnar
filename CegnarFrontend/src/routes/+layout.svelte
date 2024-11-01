@@ -27,10 +27,10 @@
                     <h3 class="">Povezave</h3>
                 </div>
                 <ul>
-                    <li>Domov</li>
-                    <li>Galerija</li>
-                    <li>Zgodba</li>
-                    <li>Kontakt</li>
+                    <li><a href="/">Domov</a></li>
+                    <li><a href="/galerija">Galerija</a></li>
+                    <li><a href="/zgodba">Zgodba</a></li>
+                    <li><a href="/kontakt">Kontakt</a></li>
                 </ul>
             </div>
             <!-- 2. column - contact, home address -->
@@ -41,22 +41,22 @@
                 <ul>
                     <li>
                         <PhoneIcon />
-                        <p>
+                        <a href="tel:{settings.phone_number}">
                             {settings.phone_number}
-                        </p>
+                        </a>
                     </li>
                     <li>
                         <EmailIcon />
-                        <p>
+                        <a href="mailto:{settings.email}">
                             {settings.email}
-                        </p>
+                        </a>
                     </li>
                     <li style="align-items: start !important;">
                         <MapMarkerIcon class="mt-1" />
-                        <div class="">
+                        <a href="https://www.google.com/maps?q={settings.workshop_address_raw}" target="_blank">
                             <p><b>Delavnica:</b></p>
                             {@html settings.workshop_address}
-                        </div>
+                        </a>
                     </li>
                 </ul>
             </div>
