@@ -44,9 +44,7 @@
 
 
 <!-- Navbar -->
-{#if showNavbar}
-<Navbar />
-{/if}
+<Navbar showNavbarOnInnit={showNavbar} />
 
 <!-- Hero section -->
 <section class="xl:h-screen bg-background md:p-4 p-2 flex xl:flex-row flex-col gap-4">

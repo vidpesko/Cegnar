@@ -11,6 +11,7 @@
     export let showMenu = false;
 
     // Show navbar
+    export let showNavbarOnInnit = true;
     let showNavbar = true;
 
     onMount(() => {
@@ -38,7 +39,7 @@
 </script>
 
 
-{#if showNavbar}
+{#if showNavbar && showNavbarOnInnit}
 <div transition:fly={{ y: -200, duration: 500 }} class="w-screen flex items-center p-2 px-10 h-16 z-30 text-black fixed bg-white bg-opacity-70 backdrop-blur-lg hover:backdrop-blur-0 hover:bg-opacity-100">
     <!-- Logo -->
     <div class="flex-1">

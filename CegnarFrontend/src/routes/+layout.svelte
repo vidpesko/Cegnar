@@ -83,9 +83,10 @@
             <!-- Social -->
             <div class="py-5">
                 <ul class="footer-social flex justify-center gap-4">
-                    <li><a href="https://www.instagram.com/cegnarblacksmithing/"><IGIcon /></a></li>
-                    <li><a href="https://www.instagram.com/cegnarblacksmithing/"><FacebookIcon /></a></li>
-                    <li><a href="https://www.instagram.com/cegnarblacksmithing/"><EmailIcon /></a></li>
+                    <li><a href={settings.instagram_url}><IGIcon /></a></li>
+                    <li><a href={settings.facebook_url}><FacebookIcon /></a></li>
+                    <li><a href="mailto:{settings.email}"><EmailIcon /></a></li>
+                    <li><a href="tel:{settings.phone_number}"><PhoneIcon /></a></li>
                 </ul>
             </div>
             
