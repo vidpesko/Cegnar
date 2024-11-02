@@ -7,8 +7,8 @@
     import IGIcon from '~icons/mdi/instagram';
     import FacebookIcon from '~icons/mdi/facebook-box';
     import EmailIcon from '~icons/mdi/email';
-    import PhoneIcon from '~icons/mdi/phone'
-    import MapMarkerIcon from '~icons/mdi/map-marker'
+    import PhoneIcon from '~icons/mdi/phone';
+    import MapMarkerIcon from '~icons/mdi/map-marker';
 
     export let data;
     let settings = data.settings;

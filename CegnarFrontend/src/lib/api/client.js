@@ -38,3 +38,8 @@ export async function getSettings() {
     let response = await get("/settings/social");
     return response;
 }
+
+export async function getContactPage() {
+    let response = await get("/pages/5/?fields=*");
+    return response
+}

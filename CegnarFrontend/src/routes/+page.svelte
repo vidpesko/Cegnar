@@ -11,11 +11,11 @@
     import IGIcon from '~icons/mdi/instagram';
     import FacebookIcon from '~icons/mdi/facebook-box';
     import EmailIcon from '~icons/mdi/email';
-    import CloseToMenuIcon from '~icons/line-md/close-to-menu-alt-transition'
     // Components
     import FeatureCard from "$lib/components/FeatureCard.svelte";
     import GalleryImage from "$lib/components/GalleryImage.svelte";
     import Navbar from "$lib/components/Navbar.svelte";
+    import HeroNavbar from "$lib/components/HeroNavbar.svelte";
     // Image slider
     import { Splide, SplideSlide } from '@splidejs/svelte-splide';
     // Other
@@ -56,32 +56,14 @@
         </video>
 
         <!-- Hero navbar -->
-        <div class="xl:ms-10 xl:mt-10 mt-4 xl:left-0 xl:translate-x-0 left-1/2 -translate-x-1/2 z-20 absolute">
-            <div class="flex md:gap-10 md:justify-between justify-center items-center bg-background rounded-lg p-4 gap-4">
-                <!-- Menu -->
-                <div class="text-textPrimary font-2xl border-[0.5px] p-1 rounded md:hidden">
-                    <CloseToMenuIcon />
-                </div>
-
-                <!-- Logo -->
-                <p class="text-white text-2xl">C</p>
-
-                <!-- Links -->
-                <ul class="md:inline-flex items-center gap-4 textPrimary hidden">
-                    <li class="hero-navbar-link">Galerija</li>
-                    <li class="hero-navbar-link">Zgodba</li>
-                    <li class="hero-navbar-link"><a href="/kontakt" class="border rounded p-2">Kontakt</a></li>
-                </ul>
-                <div class="hero-navbar-link md:hidden">
-                    <a href="/kontakt" class="border rounded p-2">Kontakt</a>
-                </div>
-            </div>
-        </div>
+        <HeroNavbar />
 
         <!-- Hero title -->
         <div class="absolute md:bottom-10 md:left-10 md:translate-x-0 md:translate-y-0 bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 md:w-full w-5/6 xl:text-start text-center">
             <h1 class="text-textPrimary md:text-8xl text-5xl font-heading">{@html home.heading}</h1>
+            {#if home.hero_small_text}
             <p class="text-textSecondary text-lg">{home.hero_small_text}</p>
+            {/if}
         </div>
 
         <!-- Social -->
@@ -120,7 +102,7 @@
 <!-- CTA -->
 <section class="py-16">
     <div class="w-4/6 mx-auto text-center">
-        <h1 class="text-background text-2xl font-heading text-center relative pb-2 mb-4 after:content-[''] after:bg-textPrimary after:w-10 after:h-2 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:rounded">{home.cta_title}</h1>
+        <h1 class="heading-underline">{home.cta_title}</h1>
         <p class="text-center mb-6">{@html home.cta_small_text}</p>
         <a href="/kontakt" class="btn btn-dark">{home.cta_btn_text}</a>
     </div>

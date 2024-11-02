@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+    * {
+        scrollbar-color: black grey;
+    }
+
     /* Custom button */
     .btn {
         @apply p-4 text-white border-[0.5px] hover:bg-white hover:text-background transition-all duration-200 rounded cursor-pointer;
@@ -93,6 +97,32 @@
     }
 
 
+    /* Contact page */
+    .contact-reason {
+        @apply border-[0.5px] p-4 rounded-xl grow text-center cursor-pointer hover:bg-textPrimary hover:text-black transition-all duration-200;
+    }
+
+    .checked {
+        @apply bg-textPrimary text-black;
+    }
+
+    .contact-reason svg {
+        @apply mx-auto text-xl;
+    }
+
+    .contact-input-heading {
+        @apply mb-1 text-textPrimary;
+    }
+
+    .contact-info {
+        @apply flex text-white justify-between p-2 rounded-2xl hover:bg-stone-800;
+    }
+
+    .contact-info > p:first-of-type {
+        @apply text-textPrimary uppercase;
+    }
+
+
     /* Footer */
     .footer-social li {
         @apply border-[0.5px] p-2 rounded-full text-sm cursor-pointer hover:text-background hover:bg-textPrimary hover:border-transparent transition-all duration-200;
@@ -120,7 +150,16 @@
 
     /* Forms */
     .input {
-        @apply border bg-transparent rounded ps-1 py-1;
+        @apply border-[0.5px] bg-transparent rounded ps-2 py-1 text-white;
+    }
+
+    .input-dropdown {
+        @apply w-full py-3 px-2 bg-background text-textSecondary border-[0.5px] rounded;
+    }
+
+    /* Heading */
+    .heading-underline {
+        @apply text-background text-2xl font-heading text-center relative pb-2 my-4 after:content-[''] after:bg-textPrimary after:w-10 after:h-2 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:rounded;
     }
 }
 
