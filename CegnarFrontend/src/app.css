@@ -9,7 +9,7 @@
 
     /* Custom button */
     .btn {
-        @apply p-4 text-white border-[0.5px] hover:bg-white hover:text-background transition-all duration-200 rounded cursor-pointer;
+        @apply p-4 text-white border-[0.5px] hover:bg-textPrimary hover:text-background transition-all duration-200 rounded cursor-pointer;
     }
 
     .btn-dark {
@@ -111,7 +111,7 @@
     }
 
     .contact-input-heading {
-        @apply mb-1 text-textPrimary;
+        @apply mb-1 text-textPrimary font-light;
     }
 
     .contact-info {
@@ -160,6 +160,11 @@
     /* Heading */
     .heading-underline {
         @apply text-background text-2xl font-heading text-center relative pb-2 my-4 after:content-[''] after:bg-textPrimary after:w-10 after:h-2 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:rounded;
+    }
+
+    /* Border */
+    .border-custom {
+        @apply border-[0.1px] border-stone-600;
     }
 }
 

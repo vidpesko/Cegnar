@@ -6,6 +6,10 @@
     import CustomIcon from '~icons/gridicons/customize';
     import IGIcon from '~icons/mdi/instagram';
     import FacebookIcon from '~icons/mdi/facebook-box';
+    // Secrets
+    import {
+        PUBLIC_GOOGLE_MAPS_EMBED_API_KEY
+    } from "$env/static/public";
 
     export let data;
     let page = data.contact;
@@ -20,10 +24,14 @@
 
 
 <Hero src={page.hero_image.full_url} heading={page.heading}>
-    <div class="h-full w-full flex gap-4" slot="content">
+    <div class="h-full w-full flex md:flex-row flex-col gap-4" slot="content">
         <!-- Contact me form -->
-        <div class="w-1/2">
-            <div class="p-4 border-[0.5px] rounded-2xl h-full">
+        <div class="md:w-1/2 w-full">
+            <div class="p-4 pt-0 border-custom rounded-2xl h-full">
+                <!-- Heading -->
+                <h1 class="heading-underline text-textPrimary text-xl after:h-1.5">Pišite mi</h1>
+
+                <p class="contact-input-heading">Vasi podatki:</p>
                 <form action="" method="post" class="flex flex-col gap-4">
                     <!-- Name -->
                     <input bind:value={name} type="text" class="input" placeholder="Ime" required>
@@ -70,8 +78,8 @@
                     <!-- Message preview -->
                     {#if name}
                     <div class="text-textSecondary my-4">
-                        <p class="text-textPrimary">Preogled sporočila:</p>
-                        <p>
+                        <p class="contact-input-heading">Preogled sporočila (sporočilo lahko urejate):</p>
+                        <p contenteditable>
                             Zdravo, sem <span class="text-white font-bold">{name}</span>.<br>
                             Pisem vam glede <span class="text-white font-bold">{contactReason}</span>.<br>
                             <br>
@@ -89,9 +97,9 @@
             </div>
         </div>
         <!-- Other info: personal info, location/map -->
-        <div class="w-1/2 flex flex-col gap-4">
+        <div class="md:w-1/2 w-full flex flex-col gap-4">
             <!-- Personal info -->
-            <div class="border-[0.5px] rounded-2xl h-1/2 px-8">
+            <div class="border-custom rounded-2xl h-1/2 px-8">
                 <!-- Heading -->
                 <h1 class="heading-underline text-textPrimary text-xl after:h-1.5">Informacije</h1>
                 <!-- Content -->
@@ -127,8 +135,17 @@
                 </ul>
             </div>
             <!-- Map -->
-            <div class="bg-white h-1/2 rounded-2xl">
-                
+            <div class="bg-white md:h-1/2 h-full rounded-2xl">
+                <!-- svelte-ignore a11y_missing_attribute -->
+                <iframe
+                    class="w-full h-full rounded-2xl"
+                    style="border:0"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed/v1/place?key={PUBLIC_GOOGLE_MAPS_EMBED_API_KEY}
+                    &q={settings.workshop_address_raw}">
+                </iframe>
             </div>
         </div>
     </div>

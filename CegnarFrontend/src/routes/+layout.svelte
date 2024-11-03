@@ -95,6 +95,6 @@
 
     <!-- Designed by me -->
     <div class="w-full bg-red-400 text-center">
-        <a>Izdelal Vid</a>
+        <a href="/">Izdelal Vid</a>
     </div>
 </footer>
