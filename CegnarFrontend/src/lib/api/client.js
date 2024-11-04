@@ -35,7 +35,7 @@ export async function getGallery(onlyImg=false, limit=0) {
 }
 
 export async function getSettings() {
-    let response = await get("/settings/social/");
+    let response = await get("/settings/personal/");
     return response;
 }
 

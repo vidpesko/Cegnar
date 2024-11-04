@@ -119,7 +119,7 @@ class BasePage(Page):
     api_fields = [
         # Hero
         APIField("heading"),
-        APIField("hero_image", serializer=ImageRenditionField("fill-300x400")),
+        APIField("hero_image", serializer=ImageRenditionField("fill-700x800")),
     ]
 
 

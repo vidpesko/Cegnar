@@ -24,6 +24,7 @@
     export let data;
     const home = data.home;
     const gallery = data.gallery;
+    const settings = data.settings;
 
     // Navbar logic
     let showNavbar = false;
@@ -59,7 +60,7 @@
         </video>
 
         <!-- Hero navbar -->
-        <HeroNavbar />
+        <HeroNavbar logo={settings.logo.full_url} />
 
         <!-- Hero title -->
         <div class="absolute md:bottom-10 md:left-10 md:translate-x-0 md:translate-y-0 bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 md:w-full w-5/6 xl:text-start text-center">
@@ -72,9 +73,9 @@
         <!-- Social -->
         <div class="absolute bottom-0 right-0 bg-background pt-2 px-2 rounded-tl-xl">
             <ul class="text-white text-2xl flex gap-1">
-                <li><a href="https://www.instagram.com/cegnarblacksmithing/"><IGIcon /></a></li>
-                <li><a href="/"><FacebookIcon /></a></li>
-                <li><a href="/"><EmailIcon /></a></li>
+                <li><a href={settings.instagram_url}><IGIcon /></a></li>
+                <li><a href={settings.facebook_url}><FacebookIcon /></a></li>
+                <li><a href="mailto:{settings.email}"><EmailIcon /></a></li>
             </ul>
         </div>
     </div>

@@ -19,8 +19,17 @@
     /* Hero section */
     /* Hero navbar */
     .hero-navbar-link {
-        @apply text-textPrimary;
+        @apply text-textPrimary uppercase text-sm font-thin;
     }
+
+    .hero-navbar-link a {
+        @apply px-2 py-3 border-custom border-transparent;
+    }
+
+    .hero-navbar-link > .link-outline {
+        @apply border-custom rounded bg-stone-950 hover:border-stone-500 hover:bg-stone-800 transition-[background-color_border-color] duration-200;
+    }
+
     /* Hero image links */
     .hero-link {
         @apply w-full h-full md:bg-red-100 rounded-2xl opacity-70 transition-all duration-200 hover:opacity-100;

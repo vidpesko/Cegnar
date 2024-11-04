@@ -5,7 +5,7 @@ from .models import PersonalSettings
 
 
 class SocialSettingsSerializer(serializers.ModelSerializer):
-    logo = ImageRenditionField("fill-150x150")
+    logo = ImageRenditionField("fill-100x100")
 
     class Meta:
         model = PersonalSettings

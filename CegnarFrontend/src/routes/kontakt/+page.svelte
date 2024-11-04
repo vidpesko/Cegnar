@@ -28,7 +28,7 @@
 </svelte:head>
 
 
-<Hero src={page.hero_image.full_url} heading={page.heading}>
+<Hero src={page.hero_image.full_url} heading={page.heading} {data}>
     <div class="h-full w-full flex md:flex-row flex-col gap-4" slot="content">
         <!-- Contact me form -->
         <div class="md:w-1/2 w-full">

@@ -2,10 +2,14 @@
     // Components
     import HeroNavbar from "./HeroNavbar.svelte";
 
+    export let data;
+    let settings = data.settings;
+
     export let src;
     export let heading;
     export let smallText;
 </script>
+
 
 <div class="pb-10 bg-background overscroll-auto">
     <div class="w-full h-screen flex lg:flex-row flex-col p-4 gap-4 bg-background">
@@ -16,7 +20,7 @@
                 <img class="absolute w-full h-full object-cover rounded-2xl md:opacity-60 opacity-40 z-0" {src} alt="Hero" />
                 
                 <!-- Hero navbar -->
-                <HeroNavbar />
+                <HeroNavbar logo={settings.logo.full_url} />
                 
                 <!-- Hero title -->
                 <div class="absolute lg:bottom-10 lg:left-10 lg:translate-y-0 lg:translate-x-0 w-full bottom-1/3 left-1/2 -translate-x-1/2 translate-y-1/2 lg:text-start text-center">

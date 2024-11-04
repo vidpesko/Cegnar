@@ -11,7 +11,7 @@
     <title>{page.title}</title>
 </svelte:head>
 
-<Hero src={page.hero_image.full_url} heading={page.heading}>
+<Hero src={page.hero_image.full_url} heading={page.heading} {data}>
     <div class="h-full w-full text-textSecondary" slot="content">
         {@html page.story}
     </div>
