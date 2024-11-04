@@ -45,6 +45,6 @@ export async function getContactPage() {
 }
 
 export async function getAboutPage() {
-    let response = await get("/pages/6/?fields=*");
+    let response = await get("/pages/4/?fields=*");
     return response
 }
