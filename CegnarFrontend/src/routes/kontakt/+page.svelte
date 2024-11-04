@@ -27,7 +27,7 @@
     <div class="h-full w-full flex md:flex-row flex-col gap-4" slot="content">
         <!-- Contact me form -->
         <div class="md:w-1/2 w-full">
-            <div class="p-4 pt-0 border-custom rounded-2xl h-full">
+            <div class="p-4 pt-0 border-custom rounded-2xl h-full overflow-scroll">
                 <!-- Heading -->
                 <h1 class="heading-underline text-textPrimary text-xl after:h-1.5">Pišite mi</h1>
 

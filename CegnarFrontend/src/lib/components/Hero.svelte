@@ -7,12 +7,11 @@
     export let smallText;
 </script>
 
-
-<div class="pb-10 bg-background">
-    <div class="w-full overflow-scroll min-h-screen flex lg:flex-row flex-col p-4 gap-4 bg-background">
+<div class="pb-10 bg-background overscroll-auto">
+    <div class="w-full h-screen flex lg:flex-row flex-col p-4 gap-4 bg-background">
         <!-- Main image -->
         <div class="lg:w-[40%] h-full">
-            <div class="hero-main w-full lg:h-[calc(100vh-2rem)] h-[40vh] rounded-2xl relative">
+            <div class="hero-main w-full lg:h-full h-[40vh] rounded-2xl relative">
                 <!-- Hero background video -->
                 <img class="absolute w-full h-full object-cover rounded-2xl md:opacity-60 opacity-40 z-0" {src} alt="Hero" />
                 
@@ -29,7 +28,7 @@
             </div>
         </div>
         <!-- Data -->
-        <div class="lg:w-[60%]">
+        <div class="lg:w-[60%] overflow-scroll">
             <slot name="content"></slot>
         </div>
     </div>

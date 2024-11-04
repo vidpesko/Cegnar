@@ -99,7 +99,7 @@
 
     /* Contact page */
     .contact-reason {
-        @apply border-[0.5px] p-4 rounded-xl grow text-center cursor-pointer hover:bg-textPrimary hover:text-black transition-all duration-200;
+        @apply border-custom p-4 rounded-xl grow text-center cursor-pointer hover:bg-textPrimary hover:text-black transition-all duration-200;
     }
 
     .checked {
@@ -111,7 +111,7 @@
     }
 
     .contact-input-heading {
-        @apply mb-1 text-textPrimary font-light;
+        @apply mb-1 text-textPrimary font-medium;
     }
 
     .contact-info {
@@ -150,11 +150,11 @@
 
     /* Forms */
     .input {
-        @apply border-[0.5px] bg-transparent rounded ps-2 py-1 text-white;
+        @apply border-custom bg-transparent rounded ps-2 py-1 text-white;
     }
 
     .input-dropdown {
-        @apply w-full py-3 px-2 bg-background text-textSecondary border-[0.5px] rounded;
+        @apply w-full py-3 px-2 bg-background text-textSecondary border-custom rounded;
     }
 
     /* Heading */
