@@ -1,8 +1,17 @@
-import { getAboutPage } from "$lib/api/client";
+// import { getAboutPage } from "$lib/api/client";
+
+
+// export async function load() {
+//     return {
+//         about: await getAboutPage(),
+//     };
+// }
+
+import { getContactPage } from "$lib/api/client";
 
 
 export async function load() {
     return {
-        about: await getAboutPage(),
+        page: await getContactPage(),
     };
 }

@@ -2,7 +2,19 @@
     // Components
     import GalleryImage from "$lib/components/GalleryImage.svelte";
     import SiteHeader from "$lib/components/SiteHeader.svelte";
+
+    export let data;
+    const page = data.page;
 </script>
+
+
+{JSON.stringify(page)}
+
+
+<svelte:head>
+    <title>{page.title}</title>
+</svelte:head>
+
 
 <SiteHeader site="galerija" />
 

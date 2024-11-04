@@ -23,6 +23,11 @@
 </script>
 
 
+<svelte:head>
+    <title>{page.title}</title>
+</svelte:head>
+
+
 <Hero src={page.hero_image.full_url} heading={page.heading}>
     <div class="h-full w-full flex md:flex-row flex-col gap-4" slot="content">
         <!-- Contact me form -->

@@ -25,6 +25,15 @@ class PersonalSettings(BaseGenericSetting):
     workshop_address = RichTextField(verbose_name="Naslov delavnice", blank=True)
     workshop_address_raw = models.CharField(max_length=100, verbose_name="Naslov delavnice brez novih vrstic", blank=True)
 
+    logo = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+        verbose_name="Logo podjetja",
+    )
+
     panels = [
         MultiFieldPanel(
             [
@@ -41,8 +50,12 @@ class PersonalSettings(BaseGenericSetting):
                 FieldPanel("workshop_address_raw"),
             ],
             "Nastavitve osebnih podatkov",
-        )
-        
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel("logo")
+            ]
+        ),
     ]
 
     class Meta:

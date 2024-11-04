@@ -1,4 +1,4 @@
-const BASE_PATH = "http://192.168.40.143:8000/api";
+const BASE_PATH = "http://localhost:8000/api";
 
 
 async function get(path) {
@@ -21,7 +21,7 @@ export async function getHomePage() {
 }
 
 export async function getGallery(onlyImg=false, limit=0) {
-    let path = "/pages/4?";
+    let path = "/pages/6?";
     if (limit !== 0) {
         path = path + "limit=" + String(limit) + "&";
     }
@@ -31,20 +31,20 @@ export async function getGallery(onlyImg=false, limit=0) {
     }
 
     let response = await get(path);
-    return response
+    return response;
 }
 
 export async function getSettings() {
-    let response = await get("/settings/social");
+    let response = await get("/settings/social/");
     return response;
 }
 
 export async function getContactPage() {
     let response = await get("/pages/5/?fields=*");
-    return response
+    return response;
 }
 
 export async function getAboutPage() {
     let response = await get("/pages/4/?fields=*");
-    return response
+    return response;
 }

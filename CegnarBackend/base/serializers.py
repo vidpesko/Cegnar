@@ -1,9 +1,12 @@
-# serializers.py
 from rest_framework import serializers
+from wagtail.images.api.fields import ImageRenditionField
+
 from .models import PersonalSettings
 
 
 class SocialSettingsSerializer(serializers.ModelSerializer):
+    logo = ImageRenditionField("fill-150x150")
+
     class Meta:
         model = PersonalSettings
         fields = [
@@ -13,4 +16,5 @@ class SocialSettingsSerializer(serializers.ModelSerializer):
             "phone_number",
             "workshop_address",
             "workshop_address_raw",
+            "logo",
         ]

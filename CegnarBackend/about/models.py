@@ -24,7 +24,7 @@ class AboutPage(BasePage):
         ),
     ]
 
-    api_fields = [
+    api_fields = BasePage.api_fields + [
         # Content
         APIField("story"),
     ]

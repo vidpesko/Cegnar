@@ -42,6 +42,9 @@
     });
 </script>
 
+<svelte:head>
+    <title>{home.title}</title>
+</svelte:head>
 
 <!-- Navbar -->
 <Navbar showNavbarOnInnit={showNavbar} />
