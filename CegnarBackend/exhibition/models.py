@@ -8,6 +8,7 @@ from wagtail.api import APIField
 from wagtail.images.api.fields import ImageRenditionField
 
 
+
 class GalleryPage(Page):
     small_text = RichTextField(verbose_name="Opis strani")
 
@@ -22,6 +23,17 @@ class GalleryPage(Page):
     ]
 
 
+class ProductCategory(models.Model):
+    name = models.CharField(max_length=20, blank=True, verbose_name="Ime kategorije", help_text="Primer: kuhinjski noz, lovski noz,...")
+
+    panels = [
+        FieldPanel("name"),
+    ]
+
+    def __str__(self):
+        return self.name
+
+
 class GalleryImages(Orderable):
     page = ParentalKey(
         GalleryPage, on_delete=models.CASCADE, related_name="gallery_images"
@@ -29,17 +41,17 @@ class GalleryImages(Orderable):
     image = models.ForeignKey(
         "wagtailimages.Image", on_delete=models.CASCADE, related_name="+"
     )
-    knife_model = models.CharField(max_length=20)
+    category = models.ForeignKey("ProductCategory", on_delete=models.SET_NULL, null=True, blank=True, related_name="+", verbose_name="Kategorija")
     image_description = RichTextField(blank=True)
 
     panels = [
         FieldPanel("image"),
-        FieldPanel("knife_model"),
+        FieldPanel("category"),
         FieldPanel("image_description"),
     ]
 
     api_fields = [
         APIField("image", serializer=ImageRenditionField("fill-300x400")),
-        APIField("knife_model"),
+        APIField("category"),
         APIField("image_description"),
     ]
