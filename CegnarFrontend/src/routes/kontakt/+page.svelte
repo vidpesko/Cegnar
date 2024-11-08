@@ -12,8 +12,8 @@
     } from "$env/static/public";
 
     export let data;
-    let page = data.contact;
-    let settings = data.settings
+    $: page = data.contact;
+    $: settings = data.settings
 
     let name;
     let email;
@@ -32,7 +32,7 @@
     <div class="h-full w-full flex md:flex-row flex-col gap-4" slot="content">
         <!-- Contact me form -->
         <div class="md:w-1/2 w-full">
-            <div class="p-4 pt-0 border-custom rounded-2xl h-full overflow-scroll">
+            <div class="p-4 pt-0 border-custom rounded-2xl h-full overflow-auto">
                 <!-- Heading -->
                 <h1 class="heading-underline text-textPrimary text-xl after:h-1.5">Pišite mi</h1>
 
@@ -82,9 +82,9 @@
 
                     <!-- Message preview -->
                     {#if name}
-                    <div class="text-textSecondary my-4">
+                    <div class="text-textSecondary my-4 w-full">
                         <p class="contact-input-heading">Preogled sporočila (sporočilo lahko urejate):</p>
-                        <p contenteditable>
+                        <p contenteditable class="w-full text-wrap">
                             Zdravo, sem <span class="text-white font-bold">{name}</span>.<br>
                             Pisem vam glede <span class="text-white font-bold">{contactReason}</span>.<br>
                             <br>

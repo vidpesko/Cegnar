@@ -4,7 +4,7 @@
     import SiteHeader from "$lib/components/SiteHeader.svelte";
 
     export let data;
-    const page = data.page;
+    $: page = data.page;
 </script>
 
 

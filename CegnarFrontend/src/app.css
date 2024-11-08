@@ -132,6 +132,20 @@
     }
 
 
+    /* Story styling */
+    .story-page-styling h2 {
+        @apply text-2xl text-textPrimary font-sans font-bold mb-2;
+    }
+
+    .story-page-styling p {
+        @apply text-textSecondary;
+    }
+
+    .story-page-styling .richtext-image {
+        @apply w-full h-1/2 max-w-96 mx-auto rounded-2xl my-6;
+    }
+
+
     /* Footer */
     .footer-social li {
         @apply border-[0.5px] p-2 rounded-full text-sm cursor-pointer hover:text-background hover:bg-textPrimary hover:border-transparent transition-all duration-200;

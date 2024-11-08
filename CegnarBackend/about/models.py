@@ -8,6 +8,7 @@ from wagtail.api import APIField
 from wagtail.images.api.fields import ImageRenditionField
 
 from base.models import BasePage
+from .serializers import RichTextWithImagesField
 
 
 class AboutPage(BasePage):
@@ -18,6 +19,7 @@ class AboutPage(BasePage):
         # Content
         MultiFieldPanel(
             [
+                InlinePanel("about_me_fact", label="Dejstva o meni"),
                 FieldPanel("story"),
             ],
             "Nastavitev vsebine",
@@ -26,5 +28,24 @@ class AboutPage(BasePage):
 
     api_fields = BasePage.api_fields + [
         # Content
-        APIField("story"),
+        APIField("about_me_fact"),
+        APIField("story", serializer=RichTextWithImagesField()),
+    ]
+
+
+class FactCard(Orderable):
+    page = ParentalKey(
+        AboutPage, on_delete=models.CASCADE, related_name="about_me_fact"
+    )
+    title = models.CharField(max_length=20, verbose_name="Naslov")
+    description = models.CharField(max_length=40, verbose_name="Opis")
+
+    panels = [
+        FieldPanel("title"),
+        FieldPanel("description"),
+    ]
+
+    api_fields = [
+        APIField("title"),
+        APIField("description"),
     ]
