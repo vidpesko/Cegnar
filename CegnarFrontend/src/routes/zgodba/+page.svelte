@@ -19,7 +19,7 @@
 <Hero src={page.hero_image.full_url} heading={page.heading} {data}>
     <div class="h-full w-full text-textSecondary py-8 md:px-8 px-4 story-page-styling overflow-hidden" slot="content">
         <!-- Heading -->
-        <h1 class="text-center font-heading text-5xl text-textPrimary">{page.intro_heading}</h1>
+        <h1 class="text-center font-heading text-3xl md:text-5xl text-textPrimary">{page.intro_heading}</h1>
 
         <!-- Intro -->
         <div class="text-center mt-4">

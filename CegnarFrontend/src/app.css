@@ -142,7 +142,7 @@
     }
 
     .story-page-styling .richtext-image {
-        @apply w-full h-1/2 max-w-96 mx-auto rounded-2xl my-6;
+        @apply w-full h-1/2 max-w-96 mx-auto rounded-2xl mt-8 mb-14;
     }
 
 
