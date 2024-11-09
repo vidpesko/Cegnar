@@ -7,6 +7,8 @@ from wagtail.admin.panels import FieldPanel, InlinePanel
 from wagtail.api import APIField
 from wagtail.images.api.fields import ImageRenditionField
 
+from .serializers import ProductCategoryField
+
 
 class GalleryPage(Page):
     small_text = RichTextField(verbose_name="Opis strani")
@@ -40,7 +42,7 @@ class GalleryImages(Orderable):
 
     api_fields = [
         APIField("image", serializer=ImageRenditionField("fill-300x400")),
-        APIField("category"),
+        APIField("category", serializer=ProductCategoryField()),
         APIField("image_description"),
     ]
 
