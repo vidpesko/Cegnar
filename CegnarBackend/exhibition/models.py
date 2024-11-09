@@ -8,7 +8,6 @@ from wagtail.api import APIField
 from wagtail.images.api.fields import ImageRenditionField
 
 
-
 class GalleryPage(Page):
     small_text = RichTextField(verbose_name="Opis strani")
 
@@ -21,17 +20,6 @@ class GalleryPage(Page):
         APIField("small_text"),
         APIField("gallery_images"),
     ]
-
-
-class ProductCategory(models.Model):
-    name = models.CharField(max_length=20, blank=True, verbose_name="Ime kategorije", help_text="Primer: kuhinjski noz, lovski noz,...")
-
-    panels = [
-        FieldPanel("name"),
-    ]
-
-    def __str__(self):
-        return self.name
 
 
 class GalleryImages(Orderable):
@@ -55,3 +43,17 @@ class GalleryImages(Orderable):
         APIField("category"),
         APIField("image_description"),
     ]
+
+
+# Product category model
+class ProductCategory(models.Model):
+    name = models.CharField(max_length=20, verbose_name="Ime kategorije", help_text="Primer: kuhinjski noz, lovski noz,...")
+    super_category = models.CharField(max_length=20, blank=True, verbose_name="Ime nadkategorije", help_text="Primer: nož, obesek,...")
+
+    panels = [
+        FieldPanel("name"),
+        FieldPanel("super_category"),
+    ]
+
+    def __str__(self):
+        return self.name

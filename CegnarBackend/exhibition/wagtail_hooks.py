@@ -5,10 +5,10 @@ from wagtail.snippets.views.snippets import SnippetViewSet
 from .models import ProductCategory
 
 
+# Icons
 @hooks.register("register_icons")
 def register_icons(icons):
     return icons + ["exhibition/category.svg"]
-
 
 
 class ProductCategoryViewSet(SnippetViewSet):
