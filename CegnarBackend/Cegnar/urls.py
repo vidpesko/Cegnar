@@ -12,6 +12,7 @@ from .api import api_router
 urlpatterns = [
     path("api/settings/", include("base.urls")),
     path("api/", api_router.urls),
+    path("api/product/", include("exhibition.urls")),
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),

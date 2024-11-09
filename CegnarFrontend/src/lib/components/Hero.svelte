@@ -11,7 +11,7 @@
 </script>
 
 
-<div class="pb-10 bg-background overscroll-auto">
+<section class="pb-10 bg-background overscroll-auto">
     <div class="w-full h-full flex lg:flex-row flex-col p-4 gap-4 bg-background">
         <!-- Main image -->
         <div class="lg:w-[40%] h-full">
@@ -36,4 +36,4 @@
             <slot name="content"></slot>
         </div>
     </div>
-</div>
+</section>

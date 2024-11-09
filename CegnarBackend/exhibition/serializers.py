@@ -1,12 +1,12 @@
 from rest_framework import serializers
-from wagtail.images.models import Image
-import re
+
+from .models import ProductCategory
 
 
-class ProductCategoryField(serializers.Field):
-    def to_representation(self, value):
-        output = {
-            "name": value.name,
-            "super_category": value.super_category,
-        }
-        return output
+class ProductCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductCategory
+        fields = [
+            "name",
+            "super_category",
+        ]

@@ -189,6 +189,10 @@
     .border-custom {
         @apply border-[0.1px] border-stone-600;
     }
+
+    .border-b-custom {
+        @apply border-b-[0.1px] border-stone-600;
+    }
 }
 
 @font-face {

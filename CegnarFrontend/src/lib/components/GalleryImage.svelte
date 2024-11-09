@@ -6,17 +6,14 @@
 </script>
 
 <div class:h-full={fullHeight} class="relative w-full">
-    <img src={url} alt="" class="w-full h-full object-center">
+    <img src={url} alt="" class="w-full object-center object-cover">
 
     {#if model}
     <div class="text-white absolute z-10 bottom-0 h-full w-full bg-opacity-70 text-center py-4 opacity-0" style="background: linear-gradient(180deg, rgba(0,0,0,0) 20%, rgba(0,0,0,0.8) 50%);">
-        <div class="absolute bottom-4 text-center w-full">
+        <div class="absolute bottom-[10%] text-center w-full">
             <h4 class="text-xl font-bold">{model}</h4>
-
-            {#if description}
-            <p class="mb-8">{description}</p>
-            {/if}
-            <a href="/" class="btn py-2">Poglej <b>"{model}"</b></a>
+            <p class="mb-8">{@html description}</p>
+            <a href="/" class="btn py-4">Naroci tak noz</a>
         </div>
     </div>
     {/if}

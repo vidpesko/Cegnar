@@ -7,18 +7,19 @@ from wagtail.admin.panels import FieldPanel, InlinePanel
 from wagtail.api import APIField
 from wagtail.images.api.fields import ImageRenditionField
 
-from .serializers import ProductCategoryField
+from base.models import BasePage
+from .fields import ProductCategoryField, RawImageField
 
 
-class GalleryPage(Page):
+class GalleryPage(BasePage):
     small_text = RichTextField(verbose_name="Opis strani")
 
-    content_panels = Page.content_panels + [
+    content_panels = BasePage.content_panels + [
         FieldPanel("small_text"),
         InlinePanel("gallery_images", label="Slike"),
     ]
 
-    api_fields = [
+    api_fields = BasePage.api_fields + [
         APIField("small_text"),
         APIField("gallery_images"),
     ]
@@ -41,7 +42,7 @@ class GalleryImages(Orderable):
     ]
 
     api_fields = [
-        APIField("image", serializer=ImageRenditionField("fill-300x400")),
+        APIField("image", serializer=RawImageField(scale_factor=0.5)),
         APIField("category", serializer=ProductCategoryField()),
         APIField("image_description"),
     ]

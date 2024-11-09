@@ -1,5 +1,4 @@
-import { getHomePage } from "$lib/api/client.js";
-import { getGallery } from "$lib/api/client";
+import { getHomePage, getGallery } from "$lib/api/client.js";
 
 
 export async function load() {

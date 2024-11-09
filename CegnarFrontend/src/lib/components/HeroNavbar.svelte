@@ -4,10 +4,11 @@
 
     export let logo;
     export let additionalClasses = "";
+    export let galleryStyling = false;
 </script>
 
 
-<div class="xl:ms-10 xl:mt-10 mt-8 xl:left-0 xl:translate-x-0 left-1/2 -translate-x-1/2 z-20 absolute {additionalClasses}">
+<div class="mt-8 left-1/2 -translate-x-1/2 z-20 absolute xl:left-0 xl:translate-x-0 xl:ms-10 xl:mt-10 {additionalClasses}">
     <div class="flex md:gap-10 md:justify-between justify-center items-center bg-background rounded-lg px-2 gap-4">
         <!-- Menu -->
         <div class="text-textPrimary text-xl border-custom p-2 rounded md:hidden">

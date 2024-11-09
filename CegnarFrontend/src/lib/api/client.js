@@ -39,6 +39,11 @@ export async function getSettings() {
     return response;
 }
 
+export async function getProductCategories() {
+    let response = await get("/product/categories/");
+    return response;
+
+}
 export async function getContactPage() {
     let response = await get("/pages/5/?fields=*");
     return response;
