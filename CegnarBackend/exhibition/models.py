@@ -33,7 +33,7 @@ class GalleryImages(Orderable):
         "wagtailimages.Image", on_delete=models.CASCADE, related_name="+"
     )
     category = models.ForeignKey("ProductCategory", on_delete=models.SET_NULL, null=True, blank=True, related_name="+", verbose_name="Kategorija")
-    image_description = RichTextField(blank=True)
+    image_description = RichTextField(blank=True, verbose_name="Kratek opis")
 
     panels = [
         FieldPanel("image"),

@@ -20,15 +20,25 @@ export async function getHomePage() {
     return response;
 }
 
-export async function getGallery(onlyImg=false, limit=0) {
+export async function getGallery({
+    onlyImg = false,
+    category = null,
+    limit = 0,
+} = {}) {
     let path = "/pages/6?";
     if (limit !== 0) {
         path = path + "limit=" + String(limit) + "&";
     }
 
     if (onlyImg) {
-        path = path + "fields=gallery_images";
+        path = "/product/";
     }
+
+    if (category) {
+        path = "/product/?category=" + category;
+    }
+
+    console.log(path)
 
     let response = await get(path);
     return response;

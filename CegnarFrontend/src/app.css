@@ -98,11 +98,11 @@
 
     /* Gallery page */
     #gallery .column {
-        @apply pe-1 flex-[33%] max-w-[33%];
+        @apply pe-2 flex-[33%] max-w-[33%];
     }
 
     #gallery .column img {
-        @apply w-full mt-1;
+        @apply w-full mt-2;
     }
 
 
