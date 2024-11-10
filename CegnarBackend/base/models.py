@@ -62,35 +62,6 @@ class PersonalSettings(BaseGenericSetting):
         verbose_name = "Nastavitve osebnih podatkov"
 
 
-# @register_snippet
-class FooterText(
-    DraftStateMixin,
-    RevisionMixin,
-    PreviewableMixin,
-    TranslatableMixin,
-    models.Model,
-):
-
-    body = RichTextField()
-
-    panels = [
-        FieldPanel("body"),
-        PublishingPanel(),
-    ]
-
-    def __str__(self):
-        return "Footer text"
-
-    def get_preview_template(self, request, mode_name):
-        return "base.html"
-
-    def get_preview_context(self, request, mode_name):
-        return {"footer_text": self.body}
-
-    class Meta(TranslatableMixin.Meta):
-        verbose_name_plural = "Footer Text"
-
-
 # Base template for child pages
 class BasePage(Page):
     # Image and title

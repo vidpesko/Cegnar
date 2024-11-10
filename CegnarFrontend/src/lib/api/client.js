@@ -63,3 +63,30 @@ export async function getAboutPage() {
     let response = await get("/pages/4/?fields=*");
     return response;
 }
+
+
+export async function postMessage({
+    name,
+    email,
+    contact_reason = "",
+    product_model = "",
+    message = ""
+} = {}) {
+    let url = BASE_PATH + "/contact/message/";
+
+    const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify({ name, email, contact_reason, product_model, message }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+    if (!response.ok) {
+        return {
+            error: response.status
+        };
+    }
+
+    return await response.json();
+}

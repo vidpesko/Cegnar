@@ -6,29 +6,32 @@
     import CustomIcon from '~icons/gridicons/customize';
     import IGIcon from '~icons/mdi/instagram';
     import FacebookIcon from '~icons/mdi/facebook-box';
+    import InfoIcon from '~icons/material-symbols/info-outline-rounded'
     // Secrets
     import {
         PUBLIC_GOOGLE_MAPS_EMBED_API_KEY
     } from "$env/static/public";
+    // Other
+    import { page } from '$app/stores';
 
-    export let data;
-    $: page = data.contact;
+    export let data, form;
+    $: pageData = data.contact;
+    $: productCategories = data.categories;
     $: settings = data.settings
 
     let name;
     let email;
     let contactReason = "izdelave po naročilu";
     let message;
-    let productType;
+    let productType = $page.url.searchParams.get("izdelek") || "";
 </script>
 
 
 <svelte:head>
-    <title>{page.title}</title>
+    <title>{pageData.title}</title>
 </svelte:head>
 
-
-<Hero src={page.hero_image.full_url} heading={page.heading} {data}>
+<Hero src={pageData.hero_image.full_url} heading={pageData.heading} {data}>
     <div class="h-full w-full flex md:flex-row flex-col gap-4" slot="content">
         <!-- Contact me form -->
         <div class="md:w-1/2 w-full">
@@ -39,9 +42,9 @@
                 <p class="contact-input-heading">Vasi podatki:</p>
                 <form action="" method="post" class="flex flex-col gap-4">
                     <!-- Name -->
-                    <input bind:value={name} type="text" class="input" placeholder="Ime" required>
+                    <input bind:value={name} name="name" type="text" class="input" placeholder="Ime" required>
                     <!-- Email -->
-                    <input bind:value={email} type="email" class="input" placeholder="Vaš email" required>
+                    <input bind:value={email} name="email" type="email" class="input" placeholder="Vaš email" required>
                     <!-- Contact reason -->
                     <div class="w-full text-textPrimary">
                         <p class="contact-input-heading">Zanima me:</p>
@@ -61,20 +64,15 @@
                     </div>
                     <!-- Message -->
                     {#if contactReason == "drugih razlogov"}
-                    <textarea bind:value={message} name="" id="" rows="5" class="input resize-y" placeholder="Sporočilo" required></textarea>
+                    <textarea name="message" bind:value={message} id="" rows="5" class="input resize-y" placeholder="Sporočilo" required></textarea>
                     <!-- Product type -->
                     {:else if contactReason == "izdelave po naročilu"}
                     <div>
-                        <p class="contact-input-heading">Izberite kategorijo:</p>
+                        <p class="contact-input-heading">Izberite izdelek:</p>
                         <select bind:value={productType} name="product-type" class="input-dropdown" id="product-type">
-                            <optgroup label="Nozi:">
-                                <option value="kitchen-knife">Kuhinjski noz</option>
-                                <option value="hunting-knife">Lovski noz</option>
-                            </optgroup>
-                            <optgroup label="Obeski:">
-                                <option value="">Obesek srce</option>
-                                <option value="">Obesek metulj</option>
-                            </optgroup>
+                            {#each productCategories as category}
+                            <option value={category.name}>{category.name}</option>
+                            {/each}
                             <option value="other">Drugo</option>
                         </select>
                     </div>
@@ -97,7 +95,15 @@
                     </div>
                     {/if}
                     <!-- Submit -->
-                    <button type="submit" class="btn mt-4">POŠLJI</button>
+                    <button type="submit" class="btn mt-4 border-custom">POŠLJI</button>
+
+                    <!-- Success message -->
+                    {#if form && form.success}
+                    <div class="bg-green-400 p-3 rounded-lg text-white flex justify-between items-center text-xl">
+                        <p>Poslano</p>
+                        <InfoIcon />
+                    </div>
+                    {/if}
                 </form>
             </div>
         </div>

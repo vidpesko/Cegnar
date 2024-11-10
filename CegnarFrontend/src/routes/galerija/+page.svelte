@@ -7,8 +7,7 @@
     // API client
     import { getGallery } from "$lib/api/client";
     // Other
-    import { goto } from '$app/navigation'
-    import { page } from '$app/stores'
+    import { page } from '$app/stores';
 
     export let data;
     $: pageData = data.page;
