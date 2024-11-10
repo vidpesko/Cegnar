@@ -55,7 +55,7 @@
     <!-- Main image / video -->
     <div class="hero-main w-full xl:h-full md:h-[600px] rounded-2xl xl:basis-[70%] h-[80vh] shrink grow relative">
         <!-- Hero background video -->
-        <video class="absolute w-full h-full object-cover rounded-2xl md:opacity-60 opacity-40 z-0" src={HeroVideo} loop autoplay muted>
+        <video class="absolute w-full h-full object-cover rounded-2xl md:opacity-60 opacity-40 z-0" src={HeroVideo} loop autoplay muted playsinline>
             Your browser does not support video tag
         </video>
 
@@ -105,7 +105,7 @@
 
 <!-- CTA -->
 <section class="py-16">
-    <div class="w-4/6 mx-auto text-center">
+    <div class="md:w-4/6 w-5/6 mx-auto text-center">
         <h1 class="heading-underline">{home.cta_title}</h1>
         <p class="text-center mb-6">{@html home.cta_small_text}</p>
         <a href="/kontakt" class="btn btn-dark">{home.cta_btn_text}</a>
@@ -115,7 +115,7 @@
 <!-- Features -->
 <section class="bg-background py-28">
     <!-- Cards -->
-    <div class="mx-20">
+    <div class="md:mx-20 mx-0 2xl:mx-auto 2xl:w-3/4">
         {#each home.home_page_feature_card as card, i}
         <FeatureCard knifeImg={card.knife_image.full_url} textureImg={WoodTextureImg} heading={card.heading} description={card.description} buttonText={card.btn_label} flipped={Math.abs(i % 2) == 1}/>
         {/each}

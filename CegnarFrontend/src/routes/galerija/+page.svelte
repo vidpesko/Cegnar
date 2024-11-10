@@ -15,6 +15,16 @@
     $: categories = data.categories;
 
     let categoryFilter = $page.url.searchParams.get("kategorija") || "";
+    let galleryColumns = 3; // How many columns in row
+
+    // Set columns per page based on browser width
+    let browserWidth;
+    $: if (browserWidth < 768) {
+        galleryColumns = 2;
+    } else {
+        galleryColumns = 3;
+    }
+
 
     async function filterProducts(category) {
         // If category is already selected, remove filter
@@ -44,7 +54,10 @@
     }
 </script>
 
+<!-- Bind to browser width -->
+<svelte:window bind:innerWidth={browserWidth} />
 
+<!-- Set title -->
 <svelte:head>
     <title>{pageData.title}</title>
 </svelte:head>
@@ -81,9 +94,9 @@
         {#await gallery}
             ...nalagam
         {:then gallery_images} 
-            {#each Array(3) as _, i}
+            {#each Array(galleryColumns) as _, i}
             <div class="column">
-                {#each gallery_images.slice(i).filter((_, index) => index % 3 === 0) as product}
+                {#each gallery_images.slice(i).filter((_, index) => index % galleryColumns === 0) as product}
                 <GalleryImage fullHeight={false} url={product.image.full_url} model={product.category.name} description={product.image_description} />
                 {/each}
             </div>

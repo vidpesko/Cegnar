@@ -1,4 +1,4 @@
-const BASE_PATH = "http://localhost:8000/api";
+const BASE_PATH = "http://192.168.40.143:8000/api";
 
 
 async function get(path) {

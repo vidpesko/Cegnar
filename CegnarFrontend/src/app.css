@@ -64,7 +64,7 @@
 
     /* Features section */
     .flipped .card-text {
-        @apply md:text-start order-1 pe-0 ps-4;
+        @apply text-start order-1 pe-0 ps-4;
     }
 
     .flipped .card-text > div > p {
@@ -80,25 +80,25 @@
     }
 
     .flipped .card-images img:first-of-type {
-        @apply rotate-[30deg] -right-32 -top-16;
+        @apply rotate-[30deg] left-1/2 -top-16;
     }
 
     .flipped .card-images img:last-of-type {
-        @apply -right-20;
+        @apply -right-8 rotate-90 md:rotate-0;
     }
 
     .feature-card:hover .card-images img:last-of-type {
-        @apply -translate-x-10;
+        @apply md:-translate-x-10;
     }
 
     .flipped:hover .card-images img:last-of-type {
-        @apply translate-x-10;
+        @apply md:translate-x-10;
     }
 
 
     /* Gallery page */
     #gallery .column {
-        @apply pe-2 flex-[33%] max-w-[33%];
+        @apply pe-2 w-1/2 flex-[50%] md:flex-[33%] md:max-w-[33%];
     }
 
     #gallery .column img {
