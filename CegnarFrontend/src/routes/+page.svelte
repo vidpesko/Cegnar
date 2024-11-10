@@ -22,9 +22,9 @@
     import { onMount } from "svelte";
 
     export let data;
-    const home = data.home;
-    const gallery = data.gallery;
-    const settings = data.settings;
+    $: home = data.home;
+    $: gallery = data.gallery;
+    $: settings = data.settings;
 
     // Navbar logic
     let showNavbar = false;
@@ -123,7 +123,7 @@
 </section>
 
 <!-- Gallery showcase -->
-<section class="bg-background px-28 pb-20">
+<section class="bg-background md:px-28 px-10 pb-20">
     <div class="">
         <!-- Title & description & show more btn -->
         <div class="flex flex-col items-center text-textSecondary gap-2 mb-6">
@@ -134,12 +134,17 @@
 
         <!-- Image slider -->
         <Splide aria-label="My Favorite Images" options={{
-            perPage: 3,
+            perPage: 4,
             gap: "1em",
             autoWidth: true,
-            height: "300px"
+            height: "300px",
+            breakpoints: {
+                768: {
+                    perPage: 1,
+                }
+            }
         }}>
-            {#each gallery.gallery_images as image}
+            {#each gallery as image}
             <SplideSlide>
                 <GalleryImage url={image.image.full_url} model={image.knife_model} description={image.image_description} />
             </SplideSlide>

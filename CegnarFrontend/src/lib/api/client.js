@@ -26,19 +26,18 @@ export async function getGallery({
     limit = 0,
 } = {}) {
     let path = "/pages/6?";
+    
+    if (onlyImg) {
+        path = "/product/?";
+    }
+    
+    if (category) {
+        path = "/product/?category=" + category + "&";
+    }
+
     if (limit !== 0) {
         path = path + "limit=" + String(limit) + "&";
     }
-
-    if (onlyImg) {
-        path = "/product/";
-    }
-
-    if (category) {
-        path = "/product/?category=" + category;
-    }
-
-    console.log(path)
 
     let response = await get(path);
     return response;
