@@ -4,6 +4,7 @@
     // Components
     import GalleryImage from "$lib/components/GalleryImage.svelte";
     import SiteHeader from "$lib/components/SiteHeader.svelte";
+    import GalleryModal from "$lib/components/GalleryModal.svelte";
     // API client
     import { getGallery } from "$lib/api/client";
     // Other
@@ -52,6 +53,20 @@
         // Update the URL in the browser without reloading the page
         window.history.pushState({}, '', url);
     }
+
+    // Open fullscreen modal
+    let modalInfo = null;
+
+    function openModal(src, model, description) {
+        modalInfo = {src, model, description};
+        // Prevent scrolling
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+        modalInfo = null;
+        document.body.style.overflow = "";
+    }
 </script>
 
 <!-- Bind to browser width -->
@@ -61,6 +76,11 @@
 <svelte:head>
     <title>{pageData.title}</title>
 </svelte:head>
+
+<!-- Fullscreen image modal -->
+{#if modalInfo}
+<GalleryModal {...modalInfo} {closeModal} />
+{/if}
 
 <!-- Hero section -->
 <SiteHeader src={pageData.hero_image.full_url} heading={pageData.heading} {data} />
@@ -73,7 +93,7 @@
         <!-- Filters -->
         <div class="flex gap-4">
             {#each categories as category}
-            <button class:bg-textPrimary={categoryFilter == category.name} on:click={() => filterProducts(category.name)} class="p-3 border-custom rounded-2xl text-black hover:bg-stone-200 transition duration-200">
+            <button class:bg-textPrimary={categoryFilter == category.name} on:click={() => filterProducts(category.name)} class="p-3 border border-stone-400 rounded-2xl text-black hover:bg-stone-200 transition duration-200">
                 {category.name}
             </button>
             {/each}
@@ -81,7 +101,7 @@
 
         {#if categoryFilter}
         <!-- Remove Filters -->
-        <button class="flex items-center gap-2 border-custom p-3 rounded-2xl" on:click={() => filterProducts(null)}>
+        <button class="flex items-center gap-2 border border-stone-400 p-3 rounded-2xl" on:click={() => filterProducts(null)}>
             <CloseIcon class="text-2xl text-black" />
             Odstrani filtre
         </button>
@@ -97,7 +117,7 @@
             {#each Array(galleryColumns) as _, i}
             <div class="column">
                 {#each gallery_images.slice(i).filter((_, index) => index % galleryColumns === 0) as product}
-                <GalleryImage fullHeight={false} url={product.image.full_url} model={product.category.name} description={product.image_description} />
+                <GalleryImage fullHeight={false} url={product.image.full_url} model={product.category.name} description={product.image_description} {openModal} />
                 {/each}
             </div>
             {/each}

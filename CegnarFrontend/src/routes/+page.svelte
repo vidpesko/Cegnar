@@ -134,14 +134,16 @@
 
         <!-- Image slider -->
         <Splide class="md:px-0 px-6" aria-label="My Favorite Images" options={{
-            perPage: 4,
+            perPage: 3,
             gap: "1em",
             autoWidth: true,
             height: "300px",
             breakpoints: {
                 768: {
+                    autoWidth: false,
+                    height: "400px",
                     perPage: 1,
-                }
+                },
             }
         }}>
             {#each gallery as image}
