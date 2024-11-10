@@ -115,7 +115,7 @@
 <!-- Features -->
 <section class="bg-background py-28">
     <!-- Cards -->
-    <div class="md:mx-20 mx-0 2xl:mx-auto 2xl:w-3/4">
+    <div class="md:mx-20 mx-2 2xl:mx-auto 2xl:w-3/4">
         {#each home.home_page_feature_card as card, i}
         <FeatureCard knifeImg={card.knife_image.full_url} textureImg={WoodTextureImg} heading={card.heading} description={card.description} buttonText={card.btn_label} flipped={Math.abs(i % 2) == 1}/>
         {/each}
@@ -123,17 +123,17 @@
 </section>
 
 <!-- Gallery showcase -->
-<section class="bg-background md:px-28 px-10 pb-20">
+<section class="bg-background md:px-28 pb-20">
     <div class="">
         <!-- Title & description & show more btn -->
-        <div class="flex flex-col items-center text-textSecondary gap-2 mb-6">
-            <h1 class="font-heading text-4xl text-textPrimary">{home.gallery_title}</h1>
-            <p class="mb-2">{@html home.gallery_description}</p>
+        <div class="text-center text-textSecondary mb-6">
+            <h1 class="font-heading text-4xl text-textPrimary mb-1">{home.gallery_title}</h1>
+            <p class="mb-8">{@html home.gallery_description}</p>
             <a href="/galerija" class="btn">{home.gallery_btn_label}</a>
         </div>
 
         <!-- Image slider -->
-        <Splide aria-label="My Favorite Images" options={{
+        <Splide class="md:px-0 px-6" aria-label="My Favorite Images" options={{
             perPage: 4,
             gap: "1em",
             autoWidth: true,
@@ -155,12 +155,12 @@
 
 <!-- About me -->
 <section class="bg-background py-20 bg-contain bg-no-repeat bg-center" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.8) 100%), url({FireImg});">
-    <div class="md:flex md:px-28 px-10 md:justify-center gap-8">
+    <div class="flex md:flex-row flex-col md:px-28 px-10 md:justify-center items-center gap-8 md:text-start text-center">
         <!-- My image -->
-        <img src={home.about_image.full_url} alt="Jaz">
+        <img src={home.about_image.full_url} alt="Jaz" class="md:h-full h-80">
 
         <!-- About me text -->
-        <div class="text-textSecondary w-3/6 flex items-center">
+        <div class="text-textSecondary md:w-3/6 my-auto">
             <div class="">
                 <h2 class="font-heading text-4xl text-textPrimary">Moja zgodba</h2>
                 <p class="mb-10">{@html home.about_description}</p>
