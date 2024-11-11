@@ -108,7 +108,7 @@
 
     /* Contact page */
     .contact-reason {
-        @apply border-custom p-4 rounded-xl grow text-center cursor-pointer hover:bg-textPrimary hover:text-black transition-all duration-200;
+        @apply border-custom p-2 rounded-xl grow flex items-start justify-evenly cursor-pointer hover:bg-textPrimary hover:text-black transition-all duration-200;
     }
 
     .checked {
@@ -116,7 +116,7 @@
     }
 
     .contact-reason svg {
-        @apply mx-auto text-xl;
+        @apply text-xl;
     }
 
     .contact-input-heading {

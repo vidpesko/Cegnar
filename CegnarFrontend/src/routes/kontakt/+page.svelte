@@ -53,7 +53,7 @@
                 <!-- Heading -->
                 <h1 class="heading-underline text-textPrimary text-xl after:h-1.5">Pišite mi</h1>
 
-                <p class="contact-input-heading">Vasi podatki:</p>
+                <p class="contact-input-heading">Vaši podatki:</p>
                 <form action="" method="post" class="flex flex-col gap-4">
                     <!-- Name -->
                     <input bind:value={name} name="name" type="text" class="input" placeholder="Ime" required>
@@ -79,13 +79,10 @@
                         </div>
                     </div>
 
-                    <!-- Message -->
-                    {#if contactReason == "drugih razlogov"}
-                    <textarea name="message" bind:value={message} id="" rows="5" class="input resize-y" placeholder="Sporočilo" required></textarea>
                     <!-- Product type -->
-                    {:else if contactReason == "izdelave po naročilu"}
+                    {#if contactReason == "izdelave po naročilu" && !wantedProductPromise}
                     <div>
-                        <p class="contact-input-heading">Izberite izdelek:</p>
+                        <p class="contact-input-heading">Izberite kategorijo:</p>
                         <select name="product-type" class="input-dropdown" id="product-type">
                             {#each productCategories as category}
                             <option value={category.name}>{category.name}</option>
@@ -94,7 +91,7 @@
                         </select>
                     </div>
                     {/if}
-
+                    
                     <!-- Selected product -->
                     {#if wantedProductPromise}
                     {#await wantedProductPromise}
@@ -109,11 +106,11 @@
                     <!-- Show product preview -->
                     <div>
                         <p class="contact-input-heading mb-2">Izbran izdelek:</p>
-                        <div class="w-full h-48 overflow-hidden flex gap-2 relative border-custom p-2 rounded-xl">
+                        <div class="w-full h-36 overflow-hidden flex gap-2 relative border-custom p-2 rounded-xl">
                             <!-- Remove btn -->
                             <button on:click={() => {
                                 wantedProductPromise = null;
-
+                                
                                 // Remove izdelek param
                                 const url = new URL(window.location.href);
                                 url.searchParams.delete('izdelek');
@@ -122,7 +119,7 @@
                             }} class="absolute top-2 right-3 text-white hover:text-red-500 text-lg">
                                 <TrashIcon />
                             </button>
-
+                            
                             <img src={product.image[0].image.full_url} alt={product.image[0].image.alt} class="object-contain h-full w-full">
                             <div class="text-textSecondary flex flex-col justify-center">
                                 <p class="text-textPrimary">{product.name}</p>
@@ -134,22 +131,12 @@
                     {/await}
                     {/if}
 
-                    <!-- Message preview -->
-                    {#if name}
-                    <div class="text-textSecondary my-4 w-full">
-                        <p class="contact-input-heading">Preogled sporočila (sporočilo lahko urejate):</p>
-                        <p contenteditable class="w-full text-wrap">
-                            Zdravo, sem <span class="text-white font-bold">{name}</span>.<br>
-                            Pisem vam glede <span class="text-white font-bold">{contactReason}</span>.<br>
-                            <br>
-                            {#if contactReason == "drugih razlogov"}
-                            {message}
-                            {:else if contactReason == "izdelave po naročilu"}
-                            Zanima me izdelek: {productType}
-                            {/if}
-                        </p>
+                    <!-- Message -->
+                    <div class="w-full">
+                        <p class="contact-input-heading">Vaše sporočilo:</p>
+                        <textarea name="message" bind:value={message} id="" rows="3" class="input resize-y w-full" placeholder="Ali je možen lovski nož s zelenim epoksi ročajem?" required></textarea>
                     </div>
-                    {/if}
+                    
                     <!-- Submit -->
                     <button type="submit" class="btn mt-4 border-custom">POŠLJI</button>
 
