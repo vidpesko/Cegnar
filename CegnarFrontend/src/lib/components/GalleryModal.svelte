@@ -14,6 +14,8 @@
 
     onMount(() => {
         dataPromise = getSpecificProduct(productId);
+        
+        return closeModal;
     });
 </script>
 

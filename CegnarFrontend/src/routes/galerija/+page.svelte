@@ -117,7 +117,7 @@
             {#each Array(galleryColumns) as _, i}
             <div class="column">
                 {#each gallery_images.slice(i).filter((_, index) => index % galleryColumns === 0) as product}
-                <GalleryImage fullHeight={false} url={product.image[0].image.full_url} productId={product.id} images={product.image} model={product.category.name} description={product.image_description} {openModal} />
+                <GalleryImage fullHeight={false} url={product.image[0].image.full_url} productId={product.id} images={product.image} name={product.category.name} model={product.image} description={product.image_description} {openModal} />
                 {/each}
             </div>
             {/each}
