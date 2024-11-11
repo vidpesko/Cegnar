@@ -10,18 +10,17 @@
 
     export let productId;
     export let closeModal;
-    let dataPromise = {};
+    let dataPromise;
 
     onMount(() => {
         dataPromise = getSpecificProduct(productId);
-        console.log(dataPromise);
     });
 </script>
 
 
 {#await dataPromise}
     ...nalagam
-{:then data} 
+{:then data}
 <div class="fixed left-0 w-full top-0 h-dvh p-10 z-30 bg-background bg-opacity-90">
     <!-- Close btn -->
     <button class="text-white text-3xl absolute right-8 top-5" on:click={closeModal}>
@@ -34,6 +33,7 @@
         <!-- {#if data.image.length > 1} -->
         <Splide class="md:px-0 px-6 md:h-full md:w-1/2 h-1/2" aria-label="My Favorite Images" options={{
             perPage: 1,
+            arrows: data.image.length > 1,
             gap: "1em",
             height: "80vh",
             breakpoints: {
