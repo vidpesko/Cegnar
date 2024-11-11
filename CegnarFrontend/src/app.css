@@ -97,10 +97,6 @@
 
 
     /* Gallery page */
-    #gallery .column {
-        @apply pe-2 w-1/2 flex-[50%] md:flex-[33%] md:max-w-[33%];
-    }
-
     #gallery .column img {
         @apply w-full mt-2;
     }
