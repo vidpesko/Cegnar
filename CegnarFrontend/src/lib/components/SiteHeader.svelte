@@ -18,8 +18,8 @@
     <!-- Hero navbar -->
     <HeroNavbar logo={settings.logo.full_url} additionalClasses="absolute top-5 md:top-8 mt-[0px] left-1/2 -translate-x-1/2 xl:left-1/2 xl:translate-x-[-50%] xl:ms-[0px] xl:mt-[0px]" />
 
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 md:translate-y-0 translate-y-0 text-textSecondary text-center">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 md:translate-y-0 translate-y-1/2 text-textSecondary text-center">
         <h1 class="text-textPrimary md:text-6xl text-4xl uppercase font-heading">{heading}</h1>
-        <p>{@html intro}</p>
+        <p class="md:block hidden">{@html intro}</p>
     </div>
 </div>

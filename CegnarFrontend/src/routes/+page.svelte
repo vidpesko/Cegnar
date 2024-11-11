@@ -126,7 +126,7 @@
 <section class="bg-background md:px-28 pb-20">
     <div class="">
         <!-- Title & description & show more btn -->
-        <div class="text-center text-textSecondary mb-6">
+        <div class="text-center text-textSecondary mb-10">
             <h1 class="font-heading text-4xl text-textPrimary mb-1">{home.gallery_title}</h1>
             <p class="mb-8">{@html home.gallery_description}</p>
             <a href="/galerija" class="btn">{home.gallery_btn_label}</a>
@@ -141,14 +141,14 @@
             breakpoints: {
                 768: {
                     autoWidth: false,
-                    height: "400px",
+                    autoHeight: true,
                     perPage: 1,
                 },
             }
         }}>
             {#each gallery as image}
             <SplideSlide>
-                <GalleryImage url={image.image[0].image.full_url} model={image.knife_model} description={image.image_description} />
+                <GalleryImage product={image} />
             </SplideSlide>
             {/each}
         </Splide>

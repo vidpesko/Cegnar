@@ -57,8 +57,8 @@
     // Open fullscreen modal
     let modalInfo = null;
 
-    function openModal(productId) {
-        modalInfo = productId;
+    function openModal(product) {
+        modalInfo = product;
         // Prevent scrolling
         document.body.style.overflow = "hidden";
     }
@@ -79,14 +79,14 @@
 
 <!-- Fullscreen image modal -->
 {#if modalInfo}
-<GalleryModal productId={modalInfo} {closeModal} />
+<GalleryModal product={modalInfo} {closeModal} />
 {/if}
 
 <!-- Hero section -->
 <SiteHeader src={pageData.hero_image.full_url} heading={pageData.heading} intro={pageData.small_text} {data} />
 
 <!-- Content -->
-<section id="gallery" class="mt-10 px-10">
+<section id="gallery" class="mt-10 px-4 md:px-10 max-w-[100rem] mx-auto">
     <!-- Filters -->
     <h3 class="text-lg font-semibold mb-2">Izberite kategorijo:</h3>
     <div class="w-full flex gap-4 justify-between pb-4 mb-6 border-b-custom">
@@ -117,7 +117,7 @@
             {#each Array(galleryColumns) as _, i}
             <div class="column">
                 {#each gallery_images.slice(i).filter((_, index) => index % galleryColumns === 0) as product}
-                <GalleryImage fullHeight={false} url={product.image[0].image.full_url} productId={product.id} images={product.image} name={product.category.name} model={product.image} description={product.image_description} {openModal} />
+                <GalleryImage fullHeight={false} {product} {openModal} />
                 {/each}
             </div>
             {/each}
