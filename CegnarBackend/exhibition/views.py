@@ -21,3 +21,8 @@ class ProductAPIView(generics.ListAPIView):
             return GalleryImage.objects.filter(category__name=product_category)
         else:
             return GalleryImage.objects.all()
+
+
+class ProductDetailAPIView(generics.RetrieveAPIView):
+    queryset = GalleryImage.objects.all()
+    serializer_class = ProductSerializer

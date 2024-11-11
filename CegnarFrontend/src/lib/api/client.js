@@ -43,6 +43,11 @@ export async function getGallery({
     return response;
 }
 
+export async function getSpecificProduct(id) {
+    let response = await get("/product/" + id);
+    return response;
+}
+
 export async function getSettings() {
     let response = await get("/settings/personal/");
     return response;

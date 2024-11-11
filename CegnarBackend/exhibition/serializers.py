@@ -38,6 +38,8 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = GalleryImage
         fields = [
+            "id",
+            "name",
             "image_description",
             "image",
             "category",
