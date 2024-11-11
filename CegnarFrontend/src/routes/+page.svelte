@@ -148,7 +148,7 @@
         }}>
             {#each gallery as image}
             <SplideSlide>
-                <GalleryImage url={image.image.full_url} model={image.knife_model} description={image.image_description} />
+                <GalleryImage url={image.image[0].image.full_url} model={image.knife_model} description={image.image_description} />
             </SplideSlide>
             {/each}
         </Splide>

@@ -6,6 +6,7 @@ from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel, InlinePanel
 from wagtail.api import APIField
 from wagtail.images.api.fields import ImageRenditionField
+from modelcluster.models import ClusterableModel
 
 from base.models import BasePage
 from .fields import ProductCategoryField, RawImageField
@@ -16,35 +17,39 @@ class GalleryPage(BasePage):
 
     content_panels = BasePage.content_panels + [
         FieldPanel("small_text"),
-        InlinePanel("gallery_images", label="Slike"),
     ]
 
     api_fields = BasePage.api_fields + [
         APIField("small_text"),
-        APIField("gallery_images"),
     ]
 
 
-class GalleryImages(Orderable):
-    page = ParentalKey(
-        GalleryPage, on_delete=models.CASCADE, related_name="gallery_images"
-    )
-    image = models.ForeignKey(
-        "wagtailimages.Image", on_delete=models.CASCADE, related_name="+"
-    )
+class GalleryImage(ClusterableModel, models.Model):
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Ustvarjeno")
     category = models.ForeignKey("ProductCategory", on_delete=models.SET_NULL, null=True, blank=True, related_name="+", verbose_name="Kategorija")
+    name = models.CharField(max_length=100, verbose_name="Ime noza", help_text="To ni isto kot kategorija (pravilno: Lovski noz iz kaljenega jekla)")
     image_description = RichTextField(blank=True, verbose_name="Kratek opis")
 
     panels = [
-        FieldPanel("image"),
+        InlinePanel("image", label="Slike"),
         FieldPanel("category"),
+        FieldPanel("name"),
         FieldPanel("image_description"),
     ]
 
-    api_fields = [
-        APIField("image", serializer=RawImageField(scale_factor=0.5)),
-        APIField("category", serializer=ProductCategoryField()),
-        APIField("image_description"),
+    def __str__(self):
+        return self.name
+
+
+# Seperate image model to allow multiple images
+class GalleryActualImage(models.Model):
+    snippet = ParentalKey(GalleryImage, related_name="image", on_delete=models.CASCADE)
+    image = models.ForeignKey(
+        "wagtailimages.Image", on_delete=models.CASCADE, null=True, related_name="+"
+    )
+
+    panels = [
+        FieldPanel("image"),
     ]
 
 

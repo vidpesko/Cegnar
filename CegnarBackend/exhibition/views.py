@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import generics
 
 from .serializers import ProductCategorySerializer, ProductSerializer
-from .models import ProductCategory, GalleryImages
+from .models import ProductCategory, GalleryImage
 
 class ProductCategoryAPIView(generics.ListAPIView):
     queryset = ProductCategory.objects.all()
@@ -18,6 +18,6 @@ class ProductAPIView(generics.ListAPIView):
         product_category = self.request.query_params.get("category")
 
         if product_category:
-            return GalleryImages.objects.filter(category__name=product_category)
+            return GalleryImage.objects.filter(category__name=product_category)
         else:
-            return GalleryImages.objects.all()
+            return GalleryImage.objects.all()

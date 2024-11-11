@@ -57,8 +57,8 @@
     // Open fullscreen modal
     let modalInfo = null;
 
-    function openModal(src, model, description) {
-        modalInfo = {src, model, description};
+    function openModal(images, model, description) {
+        modalInfo = {images, model, description};
         // Prevent scrolling
         document.body.style.overflow = "hidden";
     }
@@ -117,7 +117,7 @@
             {#each Array(galleryColumns) as _, i}
             <div class="column">
                 {#each gallery_images.slice(i).filter((_, index) => index % galleryColumns === 0) as product}
-                <GalleryImage fullHeight={false} url={product.image.full_url} model={product.category.name} description={product.image_description} {openModal} />
+                <GalleryImage fullHeight={false} url={product.image[0].image.full_url} images={product.image} model={product.category.name} description={product.image_description} {openModal} />
                 {/each}
             </div>
             {/each}

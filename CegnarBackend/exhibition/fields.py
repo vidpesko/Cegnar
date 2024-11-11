@@ -21,6 +21,7 @@ class RawImageField(serializers.Field):
 
     def to_representation(self, image):
         try:
+            print()
             w, h = round(image.width * self.scale_factor), round(image.height * self.scale_factor)
             filter_spec = f"fill-{w}x{h}"
             thumbnail = image.get_rendition(filter_spec)

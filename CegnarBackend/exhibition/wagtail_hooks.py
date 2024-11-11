@@ -2,7 +2,7 @@ from wagtail import hooks
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.views.snippets import SnippetViewSet
 
-from .models import ProductCategory
+from .models import ProductCategory, GalleryImage
 
 
 # Icons
@@ -19,3 +19,14 @@ class ProductCategoryViewSet(SnippetViewSet):
 
 # register_snippet(ProductCategory)  # register call below seems to register both
 register_snippet(ProductCategoryViewSet)
+
+
+class ImageViewSet(SnippetViewSet):
+    model = GalleryImage
+    icon = "image"
+    list_display = ["__str__", "category__name", "category__super_category", "created_at"]
+    list_filter = ["category__name", "category__super_category"]
+    menu_label = "Izdelki"
+    add_to_admin_menu = True
+
+register_snippet(ImageViewSet)
