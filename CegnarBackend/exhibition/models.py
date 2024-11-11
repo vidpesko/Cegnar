@@ -22,6 +22,7 @@ class GalleryPage(BasePage):
     api_fields = BasePage.api_fields + [
         APIField("small_text"),
     ]
+    api_fields[1] = APIField("hero_image", serializer=ImageRenditionField("fill-1800x400"))
 
 
 class GalleryImage(ClusterableModel, models.Model):

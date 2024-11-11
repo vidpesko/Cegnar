@@ -83,7 +83,7 @@
 {/if}
 
 <!-- Hero section -->
-<SiteHeader src={pageData.hero_image.full_url} heading={pageData.heading} {data} />
+<SiteHeader src={pageData.hero_image.full_url} heading={pageData.heading} intro={pageData.small_text} {data} />
 
 <!-- Content -->
 <section id="gallery" class="mt-10 px-10">

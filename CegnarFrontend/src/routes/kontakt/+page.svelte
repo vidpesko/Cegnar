@@ -1,18 +1,24 @@
 <script>
+    // API Client
+    import { getSpecificProduct } from "$lib/api/client";
     // Components
     import Hero from "$lib/components/Hero.svelte";
+    import Toast from "$lib/components/Toast.svelte";
     // Icons
     import PhoneIcon from '~icons/mdi/phone';
     import CustomIcon from '~icons/gridicons/customize';
     import IGIcon from '~icons/mdi/instagram';
     import FacebookIcon from '~icons/mdi/facebook-box';
-    import InfoIcon from '~icons/material-symbols/info-outline-rounded'
+    import InfoIcon from '~icons/material-symbols/info-outline-rounded';
+    import ErrorIcon from '~icons/material-symbols/error-circle-rounded';
+    import TrashIcon from '~icons/material-symbols/delete-outline-rounded';
     // Secrets
     import {
         PUBLIC_GOOGLE_MAPS_EMBED_API_KEY
     } from "$env/static/public";
     // Other
     import { page } from '$app/stores';
+    import { onMount } from "svelte";
 
     export let data, form;
     $: pageData = data.contact;
@@ -23,7 +29,15 @@
     let email;
     let contactReason = "izdelave po naročilu";
     let message;
-    let productType = $page.url.searchParams.get("izdelek") || "";
+    let productId = $page.url.searchParams.get("izdelek") || "";
+    let wantedProductPromise;
+
+    onMount(() => {
+        // Check if product id url param is filled
+        if (productId) {
+            wantedProductPromise = getSpecificProduct(productId);
+        }
+    });
 </script>
 
 
@@ -43,8 +57,10 @@
                 <form action="" method="post" class="flex flex-col gap-4">
                     <!-- Name -->
                     <input bind:value={name} name="name" type="text" class="input" placeholder="Ime" required>
+
                     <!-- Email -->
                     <input bind:value={email} name="email" type="email" class="input" placeholder="Vaš email" required>
+
                     <!-- Contact reason -->
                     <div class="w-full text-textPrimary">
                         <p class="contact-input-heading">Zanima me:</p>
@@ -62,6 +78,7 @@
                             <input name="contact-reason" on:change={(e) => {contactReason = (e.target.checked ? "drugih razlogov" : "VAŠ RAZLOG")}} id="otherReason" type="radio" hidden>
                         </div>
                     </div>
+
                     <!-- Message -->
                     {#if contactReason == "drugih razlogov"}
                     <textarea name="message" bind:value={message} id="" rows="5" class="input resize-y" placeholder="Sporočilo" required></textarea>
@@ -69,13 +86,52 @@
                     {:else if contactReason == "izdelave po naročilu"}
                     <div>
                         <p class="contact-input-heading">Izberite izdelek:</p>
-                        <select bind:value={productType} name="product-type" class="input-dropdown" id="product-type">
+                        <select name="product-type" class="input-dropdown" id="product-type">
                             {#each productCategories as category}
                             <option value={category.name}>{category.name}</option>
                             {/each}
                             <option value="other">Drugo</option>
                         </select>
                     </div>
+                    {/if}
+
+                    <!-- Selected product -->
+                    {#if wantedProductPromise}
+                    {#await wantedProductPromise}
+                    ...nalagam
+                    {:then product} 
+                    {#if product.error}
+                    <Toast type="error">
+                        <p>Napaka</p>
+                        <ErrorIcon />
+                    </Toast>
+                    {:else}
+                    <!-- Show product preview -->
+                    <div>
+                        <p class="contact-input-heading mb-2">Izbran izdelek:</p>
+                        <div class="w-full h-48 overflow-hidden flex gap-2 relative border-custom p-2 rounded-xl">
+                            <!-- Remove btn -->
+                            <button on:click={() => {
+                                wantedProductPromise = null;
+
+                                // Remove izdelek param
+                                const url = new URL(window.location.href);
+                                url.searchParams.delete('izdelek');
+                                // Update the URL in the browser without reloading the page
+                                window.history.pushState({}, '', url);
+                            }} class="absolute top-2 right-3 text-white hover:text-red-500 text-lg">
+                                <TrashIcon />
+                            </button>
+
+                            <img src={product.image[0].image.full_url} alt={product.image[0].image.alt} class="object-contain h-full w-full">
+                            <div class="text-textSecondary flex flex-col justify-center">
+                                <p class="text-textPrimary">{product.name}</p>
+                                <p class="text-sm">{@html product.image_description}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {/if}
+                    {/await}
                     {/if}
 
                     <!-- Message preview -->
@@ -98,11 +154,16 @@
                     <button type="submit" class="btn mt-4 border-custom">POŠLJI</button>
 
                     <!-- Success message -->
-                    {#if form && form.success}
-                    <div class="bg-green-400 p-3 rounded-lg text-white flex justify-between items-center text-xl">
+                    {#if form}
+                    <Toast type={(form.success ? 'success' : 'error')}>
+                        {#if form.success}
                         <p>Poslano</p>
                         <InfoIcon />
-                    </div>
+                        {:else}
+                        <p>Napaka</p>
+                        <ErrorIcon />
+                        {/if}
+                    </Toast>
                     {/if}
                 </form>
             </div>

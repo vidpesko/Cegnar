@@ -32,7 +32,6 @@
     <!-- Content -->
     <div class="flex flex-col md:flex-row md:gap-8 gap-4 items-center md:justify-center justify-evenly h-full">
         <!-- Images -->
-        <!-- {#if data.image.length > 1} -->
         <Splide class="md:px-0 px-6 md:h-full md:w-1/2 h-1/2" aria-label="My Favorite Images" options={{
             perPage: 1,
             arrows: data.image.length > 1,
@@ -52,14 +51,11 @@
             </SplideSlide>
             {/each}
         </Splide>
-        <!-- {:else}
-        <img src={data.image[0].full_image.full_url} alt={data.image[0].full_image.alt} class="mx-auto rounded-2xl md:max-h-full max-h-[50vh]" />
-        {/if} -->
 
         <!-- Text -->
         <div class="text-white md:text-start text-center">
             <h2 class="text-textPrimary font-heading text-5xl">{data.name}</h2>
-            <p class="text-lg mb-10">{@html data.description}</p>
+            <p class="text-lg mb-10">{@html data.image_description}</p>
             <a href="/kontakt?izdelek={productId}" class="btn">Naroci tak noz</a>
         </div>
     </div>
