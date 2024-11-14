@@ -7,25 +7,10 @@ For more information on this file, see
 https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/
 """
 
-# import os
-
-# from django.core.wsgi import get_wsgi_application
-
-# os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Cegnar.settings.dev")
-
-# application = get_wsgi_application()
-
-
 import os
-import sys
 
+from django.core.wsgi import get_wsgi_application
 
-sys.path.insert(0, os.path.dirname(__file__))
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Cegnar.settings.dev")
 
-
-def application(environ, start_response):
-    start_response("200 OK", [("Content-Type", "text/plain")])
-    message = "It works!\n"
-    version = "Python %s\n" % sys.version.split()[0]
-    response = "\n".join([message, version])
-    return [response.encode()]
+application = get_wsgi_application()
