@@ -11,7 +11,7 @@ ALLOWED_HOSTS = ["*"]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-STATIC_URL = "/py/static/"
+STATIC_URL = "/py2/static/"
 
 
 try:
