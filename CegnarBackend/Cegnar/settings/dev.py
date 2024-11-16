@@ -13,7 +13,6 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
 PARENT_DIR = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), "public_html")
-print(PARENT_DIR)
 STATIC_ROOT = os.path.join(PARENT_DIR, "static")
 MEDIA_ROOT = os.path.join(PARENT_DIR, "media")
 
