@@ -1,9 +1,16 @@
+import os
+from dotenv import load_dotenv
+
 from .base import *
+
+
+# Load environment variables from .env file
+load_dotenv()
 
 DEBUG = False
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-5+8kim@j*r^0f=rwe(rt@dmb1h($=lii=r$bpmh5rzwy5qjnw)"
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: define the correct hosts in production!
 ALLOWED_HOSTS = [".cegnarblacksmithing.com"]
