@@ -3,7 +3,13 @@ const BASE_PATH = "https://cegnarblacksmithing.com/backend/api";
 async function get(path) {
     let url = BASE_PATH + path;
 
-    const response = await fetch(url);
+    try {
+        const response = await fetch(url);
+    } catch (error) {
+        return {
+            error
+        }
+    }
 
     if (!response.ok) {
         return {
@@ -57,6 +63,7 @@ export async function getProductCategories() {
     return response;
 
 }
+
 export async function getContactPage() {
     let response = await get("/pages/5/?fields=*");
     return response;

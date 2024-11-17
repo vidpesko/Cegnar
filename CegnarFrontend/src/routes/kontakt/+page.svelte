@@ -33,6 +33,10 @@
     let wantedProductPromise;
 
     onMount(() => {
+        console.log(pageData);
+        console.log(productCategories);
+        console.log(settings);
+
         // Check if product id url param is filled
         if (productId) {
             wantedProductPromise = getSpecificProduct(productId);
