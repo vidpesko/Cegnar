@@ -22,7 +22,7 @@ PARENT_DIR = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), "public_ht
 STATIC_ROOT = os.path.join(PARENT_DIR, "static")
 MEDIA_ROOT = os.path.join(PARENT_DIR, "media")
 
-WAGTAILADMIN_BASE_URL = "https://cegnarblacksmithing.com/backend/"
+WAGTAILADMIN_BASE_URL = "https://cegnarblacksmithing.com"
 
 
 try:
