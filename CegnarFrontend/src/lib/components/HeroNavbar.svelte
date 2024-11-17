@@ -4,7 +4,6 @@
 
     export let logo;
     export let additionalClasses = "";
-    export let galleryStyling = false;
 </script>
 
 

@@ -1,5 +1,4 @@
-const BASE_PATH = "http://192.168.40.143:8000/api";
-// const BASE_PATH = "http://172.20.10.2:8000/api";
+const BASE_PATH = "https://cegnarblacksmithing.com/backend/api";
 
 async function get(path) {
     let url = BASE_PATH + path;
