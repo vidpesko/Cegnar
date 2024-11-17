@@ -5,19 +5,21 @@ async function get(path) {
 
     try {
         const response = await fetch(url);
+
+        if (!response.ok) {
+            return {
+                error: response.status
+            };
+        }
+    
+        return await response.json();
     } catch (error) {
         return {
-            error
+            error,
+            path
         }
     }
 
-    if (!response.ok) {
-        return {
-            error: response.status
-        };
-    }
-
-    return await response.json();
 }
 
 export async function getHomePage() {
