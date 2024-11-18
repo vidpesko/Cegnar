@@ -43,7 +43,7 @@
             <div class="">
                 <h2 class="text-textPrimary font-heading text-5xl">{product.name}</h2>
                 <p class="text-lg mb-10">{@html product.image_description}</p>
-                <a href="/kontakt?izdelek={product.id}" class="btn">Naroci tak noz</a>
+                <a href="/kontakt?izdelek={product.id}" data-sveltekit-reload class="btn">Naroci tak noz</a>
             </div>
         </div>
     </div>

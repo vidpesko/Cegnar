@@ -32,7 +32,7 @@
             </li>
         </ul>
         <div class="hero-navbar-link md:hidden">
-            <a href="/kontakt" class="link-outline">Kontakt</a>
+            <a href="/kontakt" data-sveltekit-reload class="link-outline">Kontakt</a>
         </div>
     </div>
 </div>

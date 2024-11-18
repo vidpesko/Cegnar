@@ -30,7 +30,7 @@
                     <li><a href="/">Domov</a></li>
                     <li><a href="/galerija">Galerija</a></li>
                     <li><a href="/zgodba">Zgodba</a></li>
-                    <li><a href="/kontakt">Kontakt</a></li>
+                    <li><a href="/kontakt" data-sveltekit-reload>Kontakt</a></li>
                 </ul>
             </div>
             <!-- 2. column - contact, home address -->

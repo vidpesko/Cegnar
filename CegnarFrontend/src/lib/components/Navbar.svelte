@@ -55,7 +55,7 @@
             </li>
             <!-- Contact -->
             <li>
-                <a href="/kontakt" class="">Kontakt</a>
+                <a href="/kontakt" data-sveltekit-reload class="">Kontakt</a>
             </li>
         </ul>
         <!-- svelte-ignore a11y-click-events-have-key-events -->
