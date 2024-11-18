@@ -1,18 +1,25 @@
-const BASE_PATH = "http://192.168.40.143:8000/api";
-// const BASE_PATH = "http://172.20.10.2:8000/api";
+const BASE_PATH = "https://cegnarblacksmithing.com/backend/api";
 
 async function get(path) {
     let url = BASE_PATH + path;
 
-    const response = await fetch(url);
+    try {
+        const response = await fetch(url);
 
-    if (!response.ok) {
+        if (!response.ok) {
+            return {
+                error: response.status
+            };
+        }
+    
+        return await response.json();
+    } catch (error) {
         return {
-            error: response.status
-        };
+            error,
+            path
+        }
     }
 
-    return await response.json();
 }
 
 export async function getHomePage() {
@@ -58,6 +65,7 @@ export async function getProductCategories() {
     return response;
 
 }
+
 export async function getContactPage() {
     let response = await get("/pages/5/?fields=*");
     return response;

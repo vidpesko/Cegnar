@@ -45,6 +45,7 @@
     <title>{pageData.title}</title>
 </svelte:head>
 
+
 <Hero src={pageData.hero_image.full_url} heading={pageData.heading} {data}>
     <div class="h-full w-full flex md:flex-row flex-col gap-4" slot="content">
         <!-- Contact me form -->

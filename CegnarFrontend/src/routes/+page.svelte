@@ -108,7 +108,7 @@
     <div class="md:w-4/6 w-5/6 mx-auto text-center">
         <h1 class="heading-underline">{home.cta_title}</h1>
         <p class="text-center mb-6">{@html home.cta_small_text}</p>
-        <a href="/kontakt" class="btn btn-dark">{home.cta_btn_text}</a>
+        <a href="/kontakt" data-sveltekit-reload class="btn btn-dark">{home.cta_btn_text}</a>
     </div>
 </section>
 

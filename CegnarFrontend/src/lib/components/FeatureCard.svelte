@@ -19,7 +19,7 @@
         <div class="z-20">
             <h1 class="md:text-4xl text-2xl font-heading text-textPrimary">{heading}</h1>
             <p class="md:mb-10 mb-6 md:w-5/6 w-full ms-auto text-end md:text-base text-sm md:ms-auto">{@html description}</p>
-            <a href="/kontakt" class="btn btn-">Zanima me</a>
+            <a href="/kontakt" data-sveltekit-reload class="btn btn-">Zanima me</a>
         </div>
         <img src={FireImg} alt="" class="z-0 absolute opacity-15 -right-32 -top-52 2xl:-top-1/2 2xl:right-0 2xl:w-1/2 -rotate-12">
     </div>

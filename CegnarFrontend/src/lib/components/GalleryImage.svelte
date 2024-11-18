@@ -14,7 +14,7 @@
         <div class="absolute bottom-[10%] text-center w-full">
             <h4 class="text-xl font-bold mb-2">{product.name}</h4>
             <p class="mb-8">{@html product.description}</p>
-            <a href="/kontakt?izdelek={product.id}" class="btn py-4 hidden md:inline-block">Naroci tak noz</a>
+            <a href="/kontakt?izdelek={product.id}" data-sveltekit-reload class="btn py-4 hidden md:inline-block">Naroci tak noz</a>
         </div>
     </div>
     {/if}
