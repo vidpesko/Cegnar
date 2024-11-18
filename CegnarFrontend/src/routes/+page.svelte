@@ -83,7 +83,7 @@
     <!-- Links / "sidebar" -->
     <div class="flex xl:flex-col lg:max-xl:h-[180px] md:max-lg:h-[150px] xl:basis-[20%] gap-4 xl:shrink-0 xl:grow-0 2x xl:max-w-[300px] 2xl:max-w-[500px]">
         {#each home.hero_sidebar_links as link}
-        <a href={link.destination} style="background-image: url('{link.image.full_url}');" class="hero-link bg-no-repeat bg-background bg-center bg-cover">
+        <a href={link.destination} style="background-image: url('{link.image.full_url}');" data-sveltekit-reload={(link.destination == "/kontakt") ? 'true' : 'false'} class="hero-link bg-no-repeat bg-background bg-center bg-cover">
             <!-- Large screen sidebar link -->
             <div>
                 <div>
