@@ -28,7 +28,7 @@
                 <a href="/zgodba" class="hover:link-outline">Zgodba</a>
             </li>
             <li class="hero-navbar-link">
-                <a href="/kontakt" class="link-outline">Kontakt</a>
+                <a href="/kontakt" data-sveltekit-reload class="link-outline">Kontakt</a>
             </li>
         </ul>
         <div class="hero-navbar-link md:hidden">
