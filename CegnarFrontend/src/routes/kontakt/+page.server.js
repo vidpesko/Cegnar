@@ -3,8 +3,8 @@ import { getContactPage, getProductCategories, postMessage } from "$lib/api/clie
 
 export async function load() {
     return {
-        // contact: await getContactPage(),
-        // categories: await getProductCategories(),
+        contact: await getContactPage(),
+        categories: await getProductCategories(),
     };
 }
 
