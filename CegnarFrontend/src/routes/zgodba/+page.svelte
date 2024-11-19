@@ -13,7 +13,7 @@
 </script>
 
 <svelte:head>
-    <title>{page.title}</title>
+    <title>{page.title} - {pageData.meta.parent.title}</title>
 </svelte:head>
 
 <Hero src={page.hero_image.full_url} heading={page.heading} {data}>

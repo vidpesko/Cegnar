@@ -42,7 +42,7 @@
 
 
 <svelte:head>
-    <title>{pageData.title}</title>
+    <title>{pageData.title} - {pageData.meta.parent.title}</title>
 </svelte:head>
 
 
