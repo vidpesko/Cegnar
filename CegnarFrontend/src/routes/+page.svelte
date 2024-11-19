@@ -173,6 +173,6 @@
 </section>
 
 <!-- Instagram posts -->
-<section class="bg-white h-[50vh] text-center">
+<!-- <section class="bg-white h-[50vh] text-center">
     <h1>Zadnje objave</h1>
-</section>
+</section> -->
