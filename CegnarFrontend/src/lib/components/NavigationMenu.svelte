@@ -4,7 +4,6 @@
     // Icons
     import MenuToCloseIcon from '~icons/line-md/menu-to-close-alt-transition';
 
-    export let menuOpened;
     export let closeNavigationMenu;
 </script>
 
