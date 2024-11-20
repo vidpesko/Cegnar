@@ -5,6 +5,7 @@
     import GalleryImage from "$lib/components/GalleryImage.svelte";
     import SiteHeader from "$lib/components/SiteHeader.svelte";
     import GalleryModal from "$lib/components/GalleryModal.svelte";
+    import NavigationMenu from "$lib/components/NavigationMenu.svelte";
     // API client
     import { getGallery } from "$lib/api/client";
     // Other
@@ -25,7 +26,6 @@
     } else {
         galleryColumns = 3;
     }
-
 
     async function filterProducts(category) {
         // If category is already selected, remove filter
@@ -67,6 +67,19 @@
         modalInfo = null;
         document.body.style.overflow = "";
     }
+
+    // Handle navigation menu
+    let menuOpened = false;
+
+    function openNavigationMenu() {
+        document.body.style.overflow = "hidden";
+        menuOpened = true;
+    }
+
+    function closeNavigationMenu() {
+        document.body.style.overflow = "auto";
+        menuOpened = false;
+    }
 </script>
 
 <!-- Bind to browser width -->
@@ -77,13 +90,18 @@
     <title>{pageData.title} - {pageData.meta.parent.title}</title>
 </svelte:head>
 
+<!-- Menu modal -->
+{#if menuOpened}
+<NavigationMenu bind:menuOpened {closeNavigationMenu} />
+{/if}
+
 <!-- Fullscreen image modal -->
 {#if modalInfo}
 <GalleryModal product={modalInfo} {closeModal} />
 {/if}
 
 <!-- Hero section -->
-<SiteHeader src={pageData.hero_image.full_url} heading={pageData.heading} intro={pageData.small_text} {data} />
+<SiteHeader src={pageData.hero_image.full_url} heading={pageData.heading} intro={pageData.small_text} {openNavigationMenu} {data} />
 
 <!-- Content -->
 <section id="gallery" class="mt-10 px-4 md:px-10 max-w-[100rem] mx-auto">

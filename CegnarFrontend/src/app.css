@@ -19,7 +19,7 @@
     /* Hero section */
     /* Hero navbar */
     .hero-navbar-link {
-        @apply text-textPrimary uppercase text-sm font-thin;
+        @apply text-textPrimary uppercase text-sm md:text-base font-thin;
     }
 
     .hero-navbar-link a {
@@ -59,6 +59,16 @@
 
     .hero-link>div:last-child svg {
         @apply border rounded-full bg-stone-600 p-0.5;
+    }
+
+
+    /* Fullscreen navigation menu */
+    .navigation-menu-fullscreen li {
+        @apply mb-10 text-center;
+    }
+
+    .navigation-menu-fullscreen a {
+        @apply uppercase font-heading text-4xl text-center;
     }
 
 

@@ -1,10 +1,7 @@
 <script>
     // Images
     import HeroVideo from "$lib/static/videos/cegnar-movie-small.mp4";
-    import HandleImg from "$lib/static/images/handle3.png";
-    import BladeImg from "$lib/static/images/blade.png";
     import WoodTextureImg from "$lib/static/images/texture3.jpg";
-    import MyImg from "$lib/static/images/about2.jpg";
     import FireImg from "$lib/static/images/fire-texture2.jpg";
     // Icons
     import RightArrow from '~icons/material-symbols/arrow-forward-rounded'
@@ -15,6 +12,7 @@
     import FeatureCard from "$lib/components/FeatureCard.svelte";
     import GalleryImage from "$lib/components/GalleryImage.svelte";
     import Navbar from "$lib/components/Navbar.svelte";
+    import NavigationMenu from "$lib/components/NavigationMenu.svelte";
     import HeroNavbar from "$lib/components/HeroNavbar.svelte";
     // Image slider
     import { Splide, SplideSlide } from '@splidejs/svelte-splide';
@@ -25,9 +23,22 @@
     $: home = data.home;
     $: gallery = data.gallery;
     $: settings = data.settings;
-
+    
     // Navbar logic
     let showNavbar = false;
+    let menuOpened = false;
+
+    // Handle navigation menu
+    function openNavigationMenu() {
+        document.body.style.overflow = "hidden";
+        menuOpened = true;
+    }
+
+    function closeNavigationMenu() {
+        document.body.style.overflow = "auto";
+        menuOpened = false;
+    }
+
     onMount(() => {
         // When on hero section hide navbar, when scrolled past hero section, show it
         let windowHeight = window.innerHeight;
@@ -40,6 +51,7 @@
                 showNavbar = false;
             }
         });
+
     });
 </script>
 
@@ -48,7 +60,12 @@
 </svelte:head>
 
 <!-- Navbar -->
-<Navbar showNavbarOnInnit={showNavbar} />
+<!-- <Navbar showNavbarOnInnit={showNavbar} /> -->
+
+<!-- Menu modal -->
+{#if menuOpened}
+<NavigationMenu bind:menuOpened {closeNavigationMenu} />
+{/if}
 
 <!-- Hero section -->
 <section class="xl:h-screen bg-background md:p-4 p-2 flex xl:flex-row flex-col gap-4">
@@ -60,10 +77,10 @@
         </video>
 
         <!-- Hero navbar -->
-        <HeroNavbar logo={settings.logo.full_url} />
+        <HeroNavbar {openNavigationMenu} logo={settings.logo.full_url} />
 
         <!-- Hero title -->
-        <div class="absolute md:bottom-10 md:left-10 md:translate-x-0 md:translate-y-0 bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 md:w-full w-5/6 xl:text-start text-center">
+        <div class="absolute md:bottom-10 md:left-0 xl:left-10 md:translate-x-0 md:translate-y-0 bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 md:w-full w-5/6 xl:text-start text-center">
             <h1 class="text-textPrimary md:text-8xl text-5xl font-heading">{@html home.heading}</h1>
             {#if home.hero_small_text}
             <p class="text-textSecondary text-lg">{home.hero_small_text}</p>

@@ -4,6 +4,7 @@
     // Components
     import Hero from "$lib/components/Hero.svelte";
     import Toast from "$lib/components/Toast.svelte";
+    import NavigationMenu from "$lib/components/NavigationMenu.svelte";
     // Icons
     import PhoneIcon from '~icons/mdi/phone';
     import CustomIcon from '~icons/gridicons/customize';
@@ -32,6 +33,19 @@
     let productId = $page.url.searchParams.get("izdelek") || "";
     let wantedProductPromise;
 
+    // Handle navigation menu
+    let menuOpened = false;
+
+    function openNavigationMenu() {
+        document.body.style.overflow = "hidden";
+        menuOpened = true;
+    }
+
+    function closeNavigationMenu() {
+        document.body.style.overflow = "auto";
+        menuOpened = false;
+    }
+
     onMount(() => {
         // Check if product id url param is filled
         if (productId) {
@@ -45,8 +59,12 @@
     <title>{pageData.title} - {pageData.meta.parent.title}</title>
 </svelte:head>
 
+<!-- Menu modal -->
+{#if menuOpened}
+<NavigationMenu bind:menuOpened {closeNavigationMenu} />
+{/if}
 
-<Hero src={pageData.hero_image.full_url} heading={pageData.heading} {data}>
+<Hero src={pageData.hero_image.full_url} heading={pageData.heading} {openNavigationMenu} {data}>
     <div class="h-full w-full flex md:flex-row flex-col gap-4" slot="content">
         <!-- Contact me form -->
         <div class="md:w-1/2 w-full">
@@ -198,7 +216,7 @@
             <div class="bg-white md:h-1/2 h-full rounded-2xl">
                 <!-- svelte-ignore a11y_missing_attribute -->
                 <iframe
-                    class="w-full h-full rounded-2xl"
+                    class="w-full h-full min-h-60 rounded-2xl"
                     style="border:0"
                     loading="lazy"
                     allowfullscreen

@@ -1,6 +1,7 @@
 <script>
     // Components
     import Hero from "$lib/components/Hero.svelte";
+    import NavigationMenu from "$lib/components/NavigationMenu.svelte";
     // Icons
     import MdiCalendarBlankMultiple from '~icons/mdi/calendar-blank-multiple';
     import MdiKnife from '~icons/mdi/knife';
@@ -10,13 +11,31 @@
     export let data;
     $: page = data.page;
     $: settings = data.settings
+
+    // Handle navigation menu
+    let menuOpened = false;
+
+    function openNavigationMenu() {
+        document.body.style.overflow = "hidden";
+        menuOpened = true;
+    }
+
+    function closeNavigationMenu() {
+        document.body.style.overflow = "auto";
+        menuOpened = false;
+    }
 </script>
 
 <svelte:head>
-    <title>{page.title} - {pageData.meta.parent.title}</title>
+    <title>{page.title} - {page.meta.parent.title}</title>
 </svelte:head>
 
-<Hero src={page.hero_image.full_url} heading={page.heading} {data}>
+<!-- Menu modal -->
+{#if menuOpened}
+<NavigationMenu bind:menuOpened {closeNavigationMenu} />
+{/if}
+
+<Hero src={page.hero_image.full_url} heading={page.heading} {openNavigationMenu} {data}>
     <div class="h-full w-full text-textSecondary py-8 md:px-8 px-4 story-page-styling overflow-hidden" slot="content">
         <!-- Heading -->
         <h1 class="text-center font-heading text-3xl md:text-5xl text-textPrimary">{page.intro_heading}</h1>
