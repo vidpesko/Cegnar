@@ -72,10 +72,12 @@
                 <!-- Heading -->
                 <h1 class="heading-underline text-textPrimary text-xl after:h-1.5">Pišite mi</h1>
 
-                <p class="contact-input-heading">Vaši podatki:</p>
-                <form action="" method="post" class="flex flex-col gap-4">
+                <form action="" method="post" class="flex flex-col gap-4 3xl:w-3/5 3xl:mx-auto">
                     <!-- Name -->
-                    <input bind:value={name} name="name" type="text" class="input" placeholder="Ime" required>
+                    <label for="name">
+                        <p class="contact-input-heading mb-0">Vaši podatki:</p>
+                    </label>
+                    <input bind:value={name} id="name" name="name" type="text" class="input" placeholder="Ime" required>
 
                     <!-- Email -->
                     <input bind:value={email} name="email" type="email" class="input" placeholder="Vaš email" required>
@@ -181,7 +183,7 @@
                 <!-- Heading -->
                 <h1 class="heading-underline text-textPrimary text-xl after:h-1.5">Informacije</h1>
                 <!-- Content -->
-                <ul class="flex flex-col gap-2">
+                <ul class="flex flex-col gap-2 3xl:w-3/5 3xl:mx-auto">
                     <li class="contact-info">
                         <!-- Info name -->
                         <p>email</p>

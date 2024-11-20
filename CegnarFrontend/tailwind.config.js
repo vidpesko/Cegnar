@@ -34,6 +34,10 @@ export default {
       animation: {
         spinningArrow: "spinningArrow 0.3s ease-in-out 1",
       },
+
+      screens: {
+        '3xl': '2400px',
+      }
     },
   },
   plugins: [],
