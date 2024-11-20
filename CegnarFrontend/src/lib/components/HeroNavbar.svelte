@@ -6,7 +6,6 @@
 
     export let logo;
     export let additionalClasses = "";
-    export let menuOpened = false;
 
     export let openNavigationMenu;
 </script>
