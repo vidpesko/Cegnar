@@ -109,7 +109,7 @@
     </div>
 
     <!-- Grid -->
-    <!-- <div class="flex flex-wrap mb-10">
+    <div class="flex flex-wrap mb-10">
         {#key categoryFilter}
         {#await gallery}
             ...nalagam
@@ -123,5 +123,5 @@
             {/each}
         {/await}
         {/key}
-    </div> -->
+    </div>
 </section>
