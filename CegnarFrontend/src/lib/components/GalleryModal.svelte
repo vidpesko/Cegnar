@@ -3,6 +3,7 @@
     import { Splide, SplideSlide } from '@splidejs/svelte-splide';
     // Icons
     import CloseIcon from '~icons/material-symbols/cancel-outline-rounded';
+    import missing from "../static/images/missing.png";
 
     export let product;
     export let closeModal;
@@ -22,6 +23,7 @@
             perPage: 1,
             arrows: product.image.length > 1,
             gap: "1em",
+            height: "100%",
             height: "calc(100vh - 5rem)",
             breakpoints: {
                 768: {
@@ -31,11 +33,17 @@
                 }
             }
         }}>
+            {#if product.image.length !== 0}
             {#each product.image as image}
-            <SplideSlide class="flex items-center justify-center rounded-2xl overflow-hidden">
-                <img src={image.full_image.full_url} alt={image.full_image.alt} class="mx-auto rounded-2xl" />
+            <SplideSlide class="flex items-center justify-center rounded-lg h-full">
+                <img src={image.full_image.full_url} alt={image.full_image.alt} class="mx-auto rounded-lg my-auto max-h-full" />
             </SplideSlide>
             {/each}
+            {:else}
+            <SplideSlide class="flex items-center justify-center rounded-2xl overflow-hidden">
+                <img src={missing} alt="" class="mx-auto rounded-xl">
+            </SplideSlide>
+            {/if}
         </Splide>
 
         <!-- Text -->

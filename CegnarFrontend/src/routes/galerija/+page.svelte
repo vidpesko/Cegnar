@@ -135,8 +135,7 @@
             {#each Array(galleryColumns) as _, i}
             <div class="column last-of-type:pe-0 pe-2 w-1/2 flex-[50%] md:flex-[calc(100%_/_3)] md:max-w-[calc(100%_/_3)]">
                 {#each gallery_images.slice(i).filter((_, index) => index % galleryColumns === 0) as product}
-                {JSON.stringify(product)}
-                <!-- <GalleryImage fullHeight={false} {product} {openModal} /> -->
+                <GalleryImage fullHeight={false} {product} {openModal} />
                 {/each}
             </div>
             {/each}
