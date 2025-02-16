@@ -8,7 +8,7 @@
 
 <div class:h-full={fullHeight} class="relative w-full overflow-hidden">
     {#if product.image.length !== 0}
-    <img src={product.image[0].image.full_url} alt={product.image[0].image.alt} class="w-full object-center object-cover h-full max-h-[30rem] rounded">
+    <img src={product.image[0].image.full_url} alt={product.image[0].image.alt} class="w-full md:w-auto object-center object-cover h-full max-h-[30rem] rounded">
     {:else}
     <img src={missing} alt="Missing">
     {/if}
