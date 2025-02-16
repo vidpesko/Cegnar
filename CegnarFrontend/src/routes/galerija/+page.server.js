@@ -17,5 +17,3 @@ export async function load({ params, url }) {
         categories: await getProductCategories(),
     };
 }
-
-// DEBUG
